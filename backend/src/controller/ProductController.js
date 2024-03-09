@@ -1,0 +1,126 @@
+const productModel = require("../models/ProductModel");
+const fs = require("fs");
+const userModel = require('../models/UserModel');
+module.exports = {
+
+    //private routes
+
+    async verifyAdmin(req, res, next) {
+        const { userId } = req.body;
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.status(400).json({ msg: "Faça login" });
+        } else if (user.role !== "admin") {
+            return res.status(400).json({ msg: "Você não tem permissão para estar aqui" });
+        }
+        next();
+
+    },
+
+
+    async create(req, res) {
+        const { title, price, description, category, variations } = req.body;
+        const file = req.file;
+        if (!title || !price || !description || !category || !file) {
+            return res.status(500).json({ msg: "Faltando dados" });
+        }
+        try {
+            const product = await productModel.create({
+                src: file.path,
+                title,
+                price,
+                description,
+                category,
+                variations
+            });
+            return res.status(201).json({ msg: "Produto criado com sucesso", product });
+        } catch (err) {
+            return res.status(400).json({ msg: "Erro ao criar produto " + err });
+        }
+
+    },
+
+    async update(req, res) {
+        res.json("Em produção");
+    },
+
+    async delete(req, res) {
+        const productId = req.params.id;
+        const product = await productModel.findById(productId);
+        if (!product) {
+            return res.status(400).json({ msg: "Esse produto não existe" });
+        }
+        try {
+            fs.unlinkSync(product.src);
+            await productModel.deleteOne(product);
+            return res.status(200).json({ msg: "Produto excluído com sucesso" });
+        } catch (error) {
+            return res.status(400).json({ msg: "Erro ao apagar produto " + error });
+        }
+    },
+
+
+
+
+    //public routes    
+    async read(req, res) {
+        try {
+            const product = await productModel.find();
+            return res.status(200).json(product);
+        } catch (err) {
+            return res.status(400).json({ msg: "Erro " + err });
+        }
+    },
+    async addFavorite(req, res) {
+        const { userId } = req.body;
+        const productId = req.params.id;
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.status(400).json({ msg: "Erro! Faça login" });
+        } else if (!productId) {
+            return res.status(400).json({ msg: "Produto não existe" });
+        }
+        for (const favorite of user.favoriteProduct) {
+            if (productId === favorite.id) {
+                return res.status(400).json({ msg: "Produto já esta nos favoritos" });
+            }
+        }
+        try {
+            user.favoriteProduct.push(productId)
+            await user.save();
+            return res.status(200).json({ msg: "Adicionado aos favoritos com sucesso", user });
+        } catch (error) {
+            return res.status(400).json({ msg: "Erro ao adicionar ao favoritos " + error });
+        }
+
+
+    },
+
+    async removeFavorite(req, res) {
+        const { userId } = req.body;
+        const productId = req.params.id;
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.status(400).json({ msg: "Erro! Faça login" });
+        } else if (!productId) {
+            return res.status(400).json({ msg: "Produto não existe" });
+        }
+        try {
+            user.favoriteProduct = user.favoriteProduct.filter(product => product.id !== productId);
+            await user.save();
+            return res.status(200).json({ msg: "Removido dos favoritos com sucesso", user })
+        } catch (err) {
+            return res.status(400).json({ msg: "Erro ao remover dos favoritos " + user });
+        }
+    },
+
+    async readOne(req, res) {
+        const productId = req.params.id;
+        const product = await productModel.findById(productId);
+        if (!product) {
+            return res.status(400).json({ msg: "Erro ao buscar o produto" });
+        }
+        return res.status(200).json(product);
+
+    },
+}
