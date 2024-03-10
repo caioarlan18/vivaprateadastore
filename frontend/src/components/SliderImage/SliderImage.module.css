@@ -1,0 +1,30 @@
+.banner img {
+    object-fit: cover;
+    width: 100%;
+
+}
+
+
+
+.banner {
+    margin-top: 30px;
+    width: 100%;
+
+}
+
+.bannerDesktop {
+    display: none;
+}
+
+
+
+@media screen and (min-width:992px) and (max-width: 4000px) {
+    .bannerDesktop {
+        display: block;
+    }
+
+    .bannerMobile {
+        display: none;
+    }
+
+}

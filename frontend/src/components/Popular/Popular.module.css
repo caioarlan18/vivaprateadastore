@@ -1,0 +1,45 @@
+.popularTitle {
+    padding: 20px;
+}
+
+.popularTitle h1 {
+    font-family: Zen Antique;
+    font-weight: 600;
+    color: #0D4389;
+    font-size: 30px;
+}
+
+.popular1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+
+.popular2 {
+    width: 40%;
+    margin: 30px 0px;
+    margin-left: 10px;
+    border-bottom: 2px solid #0D4389;
+
+}
+
+.popular2 a {
+    color: #0D4389;
+    font-family: Zen Antique;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 992px) and (max-width: 4000px) {
+    .popular2 {
+        width: 20%;
+    }
+
+    .popular2 a {
+        font-size: 25px;
+    }
+}

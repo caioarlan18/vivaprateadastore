@@ -1,0 +1,21 @@
+.sliderProduct {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.sliderProductTitle {
+    background-color: #f3f3f3;
+    padding: 20px;
+}
+
+.sliderProductTitle h1 {
+    font-family: Zen Antique;
+    font-weight: 600;
+    color: #0D4389;
+    font-size: 30px;
+}
+
+.sliderProduct1 {
+    padding: 20px;
+}

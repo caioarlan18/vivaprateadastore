@@ -1,0 +1,51 @@
+.footer {
+    background-color: #04152A;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 40px;
+}
+
+
+.redes svg {
+    color: white;
+    width: 40px;
+    height: 40px;
+    margin-right: 30px;
+}
+
+.footer1 {
+    margin-top: 40px;
+}
+
+.footer1 h1 {
+    color: white;
+    font-family: Zen Antique;
+    font-weight: 600;
+}
+
+.footer1 a {
+    text-decoration: none;
+}
+
+.footer1 p {
+    color: white;
+    font-family: Zen Antique;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.bandeiras img {
+    width: 200px;
+}
+
+@media screen and (min-width: 992px) and (max-width: 4000px) {
+    .footer {
+        justify-content: space-around;
+    }
+
+    .bandeiras img {
+        width: 500px;
+    }
+}

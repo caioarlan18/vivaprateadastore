@@ -3,31 +3,58 @@ svg {
     cursor: pointer;
 }
 
-.headerMobile {
-    height: 80px;
-    display: flex;
-    background-color: whitesmoke;
-    align-items: center;
-    justify-content: space-around;
+.onlyDesktop {
+    display: none;
 }
 
-.headerMobile1 h1,
-.headerMobile svg {
-    color: #09466e;
+.headerMobile {
+    height: 120px;
+    display: flex;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.headerMobile1 {
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+    text-decoration: none;
+
+}
+
+.headerMobile1 img {
+    width: 30%;
+    height: 30%;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-.headerMobile svg {
+.headerMobile1 h1 {
+    color: #0D4389;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: Zen Antique;
+    line-height: 1;
+    font-weight: 400;
+    margin-left: 5px;
+
+}
+
+.headerMobile1 svg {
+    margin-left: 20px;
+    color: #0D4389;
     width: 20px;
-    height: 20px;
+    height: 30px;
+
 }
 
 
 
 
-.headerDesktop {
-    display: none;
-}
+
 
 
 /* menu hamburguer */
@@ -38,7 +65,8 @@ svg {
     top: 0;
     height: 100%;
     position: fixed;
-    background-color: white;
+    background-color: #F3F3F3;
+    z-index: 99;
 
 }
 
@@ -51,20 +79,28 @@ svg {
 
 /* categories */
 .log {
-    background-color: #09466e;
+    background-color: #0D4389;
     height: 100px;
+    display: flex;
 }
 
 .log a {
     color: white;
     margin-left: 15px;
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
+    font-family: Zen Antique;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.log svg {
+    margin-right: 5px;
 }
 
 .cat {
     border-bottom: 2px solid whitesmoke;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .cat p,
@@ -73,8 +109,12 @@ svg {
     margin-left: 15px;
     cursor: pointer;
     text-decoration: none;
-    color: black;
+    color: #0D4389;
+    font-family: Zen Antique;
+    font-weight: 400;
 }
+
+
 
 /* subcategories */
 .subcat a {
@@ -82,15 +122,136 @@ svg {
     margin-left: 30px;
     margin-top: 10px;
     display: block;
+    color: black;
 
 }
+
+
 
 @media screen and (min-width:992px) and (max-width: 4000px) {
     .headerMobile {
         display: none;
     }
 
-    .headerDesktop {
+    .onlyDesktop {
         display: block;
+    }
+
+    .headerDesktop {
+        display: flex;
+        background-color: #F3F3F3;
+        align-items: center;
+        justify-content: space-around;
+        height: 120px;
+    }
+
+    .headerDesktop1 {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+
+    }
+
+    .headerDesktop1 h1 {
+        color: #0D4389;
+        cursor: pointer;
+        font-size: 40px;
+        font-family: Zen Antique;
+        line-height: 1;
+        font-weight: 400;
+        margin-left: 5px;
+    }
+
+    .headerDesktop1 img {
+        width: 30%;
+        height: 30%;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+
+    .headerDesktop1 svg {
+        width: 20px;
+        height: 30px;
+    }
+
+    .headerDesktop1 svg {
+        margin-left: 10px;
+        color: #0D4389;
+    }
+
+    .lupa {
+        border: 2px solid #0D4389;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: 5px;
+        color: #0D4389;
+
+    }
+
+    .headerDesktop1 input {
+        outline: none;
+        height: 30px;
+        width: 500px;
+        border: 2px solid #0D4389;
+        padding: 5px;
+        border-left: 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: 20px;
+        font-family: Zen Antique;
+        text-indent: 2px;
+
+    }
+
+    .menubottom a {
+        text-decoration: none;
+    }
+
+    .menubottom {
+        display: flex;
+        height: 100px;
+        background-color: #0D4389;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menubottom span {
+        color: white;
+        cursor: pointer;
+        font-size: 25px;
+        font-family: Zen Antique;
+        font-weight: 600;
+        margin-left: 60px;
+    }
+
+    .menubottom1 {
+        background-color: #0D4389;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .menubottom2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .menubottom2 h1 {
+        color: white;
+        font-family: Zen Antique;
+        font-weight: 500;
+        font-size: 40px;
+    }
+
+    .menubottom2 a {
+        font-size: 20px;
+        margin-top: 10px;
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 300;
     }
 }
