@@ -22,12 +22,7 @@ export function Footer() {
                 </div>
             </div>
             <div className={styles.bandeiras}>
-                <div>
-                    <img src={bandeira2} alt="bandeira-de-pagamento2" />
-                </div>
-                <div>
-                    <img src={bandeira1} alt="bandeira-de-pagamento1" />
-                </div>
+
             </div>
         </div >
     )

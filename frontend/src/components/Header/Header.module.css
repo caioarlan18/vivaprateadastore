@@ -10,8 +10,7 @@ svg {
 .headerMobile {
     height: 120px;
     display: flex;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: #F3F3F3;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -26,8 +25,8 @@ svg {
 }
 
 .headerMobile1 img {
-    width: 30%;
-    height: 30%;
+    width: 25%;
+    height: 25%;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -150,7 +149,14 @@ svg {
         align-items: center;
         text-decoration: none;
 
+    }
 
+    .headerDesktop1 a {
+        color: #0D4389;
+        font-size: 15px;
+        text-decoration: none;
+        font-family: Zen Antique;
+        font-weight: 600;
     }
 
     .headerDesktop1 h1 {

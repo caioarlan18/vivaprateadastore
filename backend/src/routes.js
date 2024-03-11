@@ -12,7 +12,7 @@ routes.get("/auth/logged/:id", userController.checkToken, userController.logged)
 // private route product
 
 routes.post("/product/create", upload.single("file"), ProductController.verifyAdmin, ProductController.create);
-routes.delete("/product/delete/:id", ProductController.verifyAdmin, ProductController.delete);
+routes.post("/product/delete/:id", ProductController.verifyAdmin, ProductController.delete);
 
 // public route product
 routes.post("/product/addfavorite/:id", ProductController.addFavorite);

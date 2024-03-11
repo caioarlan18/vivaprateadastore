@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
+import api from '../../axiosConfig/axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 export function Register() {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const navigate = useNavigate();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     function handleName(e) {
         setName(e.target.value)
@@ -17,9 +22,25 @@ export function Register() {
     function handlePassword(e) {
         setPassword(e.target.value)
     }
+    async function handleSubmit() {
+        try {
+            const response = await api.post("/auth/register", {
+                name,
+                email,
+                password
+            });
+            setName("");
+            setEmail("");
+            setPassword("");
+            toast.success(response.data.msg);
+        } catch (err) {
+            toast.error(err.response.data.msg);
+        }
+    }
     return (
         <div>
             <Header />
+            <ToastContainer />
             <div className={styles.container}>
                 <div className={styles.register}>
                     <div className={styles.register0}>
@@ -48,7 +69,7 @@ export function Register() {
                             <input type="password" value={password} onChange={handlePassword} />
                         </div>
                     </form>
-                    <button >Criar conta</button>
+                    <button onClick={handleSubmit} >Criar conta</button>
                 </div>
             </div>
             <Footer />

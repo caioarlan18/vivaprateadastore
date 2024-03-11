@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
-const VariationSchema = new mongoose.Schema({
-    name: {
-        type: String
-    }
-})
+
 const ProductSchema = new mongoose.Schema({
     src: {
         type: String
@@ -20,7 +16,9 @@ const ProductSchema = new mongoose.Schema({
     category: {
         type: String
     },
-    variations: [VariationSchema]
+    variations: {
+        type: String
+    }
 })
 
 module.exports = mongoose.model("Products", ProductSchema);

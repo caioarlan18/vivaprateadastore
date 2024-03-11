@@ -1,0 +1,18 @@
+.info {
+    margin: 50px 0px;
+
+}
+
+.info span {
+    color: black;
+    font-weight: 600;
+}
+
+.info h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: Zen Antique;
+    color: #0D4389;
+    font-weight: 400;
+
+}

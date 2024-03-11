@@ -1,0 +1,17 @@
+.card {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+    flex-wrap: wrap;
+}
+
+.card1 {
+    width: 40%;
+    margin: 0px 20px;
+}
+
+@media screen and (min-width:992px) and (max-width: 4000px) {
+    .card1 {
+        width: 20%;
+    }
+}

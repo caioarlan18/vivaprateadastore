@@ -10,9 +10,11 @@ module.exports = {
         }
         else if (!email.includes('@') || email.length < 10) {
             return res.status(400).json({ msg: 'Coloque um email válido' })
+        } else if (password.length < 10) {
+            return res.status(400).json({ msg: "Digite uma senha maior" })
         }
         else if (userExists) {
-            return res.status(400).json({ msg: 'Esta conta já existe' })
+            return res.status(400).json({ msg: 'Já existe uma conta cadastrada com esse email' })
         }
 
         try {
@@ -22,7 +24,7 @@ module.exports = {
                 password,
                 role
             })
-            return res.status(200).json({ msg: 'Conta criada com sucesso', user });
+            return res.status(200).json({ msg: 'Conta criada com sucesso, Faça login' });
         } catch (err) {
             return res.status(400).json({ msg: "Erro ao criar conta " + err });
         }

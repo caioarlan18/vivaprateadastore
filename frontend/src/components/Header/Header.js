@@ -1,6 +1,6 @@
 import styles from './Header.module.css';
-import { FaBars, FaAngleDown, FaAngleRight, FaUser, FaShoppingCart, FaSearch } from 'react-icons/fa';
-import { useState } from 'react';
+import { FaBars, FaAngleDown, FaAngleRight, FaUser, FaShoppingCart, FaSearch, FaHeart } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logotipo from '../images/logosite.jpg';
 export function Header() {
@@ -8,6 +8,7 @@ export function Header() {
     const [fem, setFem] = useState(false);
     const [unissex, setUnissex] = useState(false);
     const [openCat, setOpenCat] = useState(false);
+    const [logged, setLogged] = useState(false);
     function menuOpen() {
         const menu = document.querySelector(`.${styles.menuHamburguer}`);
         menu.classList.toggle(styles.active);
@@ -24,6 +25,20 @@ export function Header() {
     function handleOpenCat() {
         setOpenCat(!openCat);
     }
+
+    //verify logged
+    const userdata = JSON.parse(localStorage.getItem("userdata"))
+    useEffect(() => {
+        if (!userdata) {
+            setLogged(false);
+        } else {
+            setLogged(true);
+        }
+    }, [])
+
+
+
+
     return (
         <div>
 
@@ -33,10 +48,11 @@ export function Header() {
                     <img src={logotipo} alt="logo do site" />
                     <h1>VIVA <br />Prateada</h1>
                 </Link>
-                <div className={styles.headerMobile1} onClick={menuOpen}>
+                <div className={styles.headerMobile1} >
                     <FaSearch />
                     <Link to={"/carrinho"}><FaShoppingCart /></Link>
-                    <FaBars />
+                    <Link to={"/favorites"}><FaHeart /></Link>
+                    <FaBars onClick={menuOpen} />
                 </div>
             </div>
 
@@ -52,8 +68,11 @@ export function Header() {
                         <FaSearch className={styles.lupa} /><input type="text" placeholder='Pesquisar' />
                     </div>
                     <div className={styles.headerDesktop1}>
-                        <Link to={"/login"}><FaUser /></Link>
+                        <Link to={"/login"}>{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}<FaUser /></Link>
+
                         <FaShoppingCart />
+                        <Link to={"/favorites"}><FaHeart /></Link>
+
                     </div>
                 </div>
                 <div className={styles.menubottom}>
@@ -87,7 +106,7 @@ export function Header() {
             {/* menu hamburguer */}
             <div className={styles.menuHamburguer}>
                 <div className={styles.log}>
-                    <Link to={'/login'}><FaUser />Login</Link>
+                    <Link to={'/login'}><FaUser />{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}</Link>
                 </div>
 
                 <div className={styles.cat}  >
