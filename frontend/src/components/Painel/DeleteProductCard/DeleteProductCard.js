@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import styles from './ProductCard.module.css';
+import styles from './DeleteProductCard.module.css';
 import { DeleteOutlined } from '@ant-design/icons';
 import api from '../../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
@@ -9,8 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const { Meta } = Card;
 
-const ProductCard = () => {
-    const [userData, setUserData] = useState([]);
+const DeleteProductCard = () => {
+    const [userData, setUserData] = useState([])
+
     async function handleDelete(id) {
         try {
             const userId = localStorage.getItem("id");
@@ -64,4 +65,4 @@ const ProductCard = () => {
     );
 };
 
-export default ProductCard;
+export default DeleteProductCard;

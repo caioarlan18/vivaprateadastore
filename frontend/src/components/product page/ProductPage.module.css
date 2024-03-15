@@ -1,0 +1,192 @@
+.compra {
+  margin-top: 50px;
+  width: 100%;
+  margin-bottom: 100px;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imagem_principal img {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.compra1 {
+  display: flex;
+  width: 85%;
+}
+.compra1 img {
+  width: 28%;
+  display: flex;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.compra2 {
+  width: 85%;
+}
+.compra2 h1 {
+  font-family: Zen Antique;
+  font-weight: 500;
+  font-size: 23px;
+  margin: 30px 0px;
+  color: #0d4389;
+  text-transform: capitalize;
+}
+.compra2 a {
+  color: #1b3768;
+  font-size: 15px;
+  font-family: Zen Antique;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.compra3 {
+  width: 85%;
+  align-items: center;
+  margin-top: 30px;
+}
+.compra3 h2 {
+  font-family: Zen Antique;
+  font-size: 30px;
+  color: #0d4389;
+  margin: 0;
+  font-weight: 700;
+}
+.compra3 span {
+  color: white;
+  text-decoration: none;
+  background-color: #07aa07;
+  display: inline-block;
+  font-size: 10px;
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-weight: 600;
+  font-family: Zen Antique;
+}
+.compra3 h3 {
+  font-family: Zen Antique;
+  color: #666666;
+  font-weight: 400;
+  font-size: 20px;
+  text-decoration: line-through;
+  margin: 0;
+  margin-right: 10px;
+  display: inline-block;
+}
+.compra4 {
+  width: 85%;
+  margin-top: 30px;
+}
+.compra4 h1 {
+  font-size: 15px;
+  font-family: Zen Antique;
+}
+.compra4 select {
+  font-family: Zen Antique;
+  width: 70px;
+}
+.compra5 {
+  width: 85%;
+  margin-top: 30px;
+}
+.compra5 button {
+  border: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #0d4389;
+  color: white;
+  font-family: Zen Antique;
+  text-decoration: none;
+  border-radius: 30px;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 0 0 6px;
+  border-color: #092f61;
+  font-weight: 600;
+}
+button.compra51 {
+  margin-top: 15px;
+  border: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #018bd6;
+  color: white;
+  font-family: Zen Antique;
+  text-decoration: none;
+  border-radius: 30px;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 0 0 6px;
+  border-color: #0d73aa;
+  font-weight: 500;
+}
+.compra6 {
+  width: 85%;
+  margin-top: 50px;
+}
+.compra6b {
+  font-family: Zen Antique;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #226a7c;
+}
+.compra6b:first-child {
+  color: #4a4a4a;
+}
+.compra6b svg {
+  margin-right: 10px;
+}
+.compra7 {
+  width: 85%;
+}
+.compra7 img {
+  width: 100%;
+  margin-top: 50px;
+}
+.compra8 {
+  width: 85%;
+  margin-top: 50px;
+}
+.compra8 h1 {
+  font-size: 22px;
+  color: #1b3768;
+  font-family: Zen Antique;
+  font-weight: 500;
+}
+.compra8 h2 {
+  color: #515151;
+  font-size: 18px;
+  font-family: Zen Antique;
+  margin-top: 20px;
+}
+.compra8 p {
+  color: #4b4f58;
+  margin-top: 15px;
+  font-family: Zen Antique;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.compra_desktop {
+  display: none;
+}
+@media screen and (min-width: 992px) and (max-width: 4000px) {
+  .compra {
+    display: none;
+  }
+  .desktop1 {
+    width: 50%;
+  }
+  .compra_desktop {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .desktop {
+    display: flex;
+  }
+}
