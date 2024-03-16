@@ -80,11 +80,6 @@ module.exports = {
         } else if (!productId) {
             return res.status(400).json({ msg: "Produto não existe" });
         }
-        for (const favorite of user.favoriteProduct) {
-            if (productId === favorite.id) {
-                return res.status(400).json({ msg: "Produto já esta nos favoritos" });
-            }
-        }
         try {
             user.favoriteProduct.push(productId)
             await user.save();

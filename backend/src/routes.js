@@ -17,6 +17,6 @@ routes.post("/product/delete/:id", ProductController.verifyAdmin, ProductControl
 // public route product
 routes.post("/product/addfavorite/:id", ProductController.addFavorite);
 routes.get("/product/all", ProductController.read);
-routes.delete("/product/removefavorite/:id", ProductController.removeFavorite);
+routes.post("/product/removefavorite/:id", ProductController.removeFavorite);
 routes.get("/product/read/:id", ProductController.readOne);
 module.exports = routes;
