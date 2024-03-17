@@ -79,7 +79,7 @@ export function SliderProduct() {
             <Swiper spaceBetween={30} slidesPerView={2} className={styles.card}
                 breakpoints={{
                     992: {
-                        slidesPerView: 4
+                        slidesPerView: 5
                     }
                 }}
             >

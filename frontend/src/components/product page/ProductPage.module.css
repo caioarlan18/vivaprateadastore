@@ -7,25 +7,30 @@
   flex-direction: column;
   align-items: center;
 }
+
 .imagem_principal img {
   width: 85%;
   display: flex;
   justify-content: center;
   cursor: pointer;
 }
+
 .compra1 {
   display: flex;
   width: 85%;
 }
+
 .compra1 img {
   width: 28%;
   display: flex;
   margin-top: 20px;
   cursor: pointer;
 }
+
 .compra2 {
   width: 85%;
 }
+
 .compra2 h1 {
   font-family: Zen Antique;
   font-weight: 500;
@@ -34,6 +39,7 @@
   color: #0d4389;
   text-transform: capitalize;
 }
+
 .compra2 a {
   color: #1b3768;
   font-size: 15px;
@@ -47,6 +53,7 @@
   align-items: center;
   margin-top: 30px;
 }
+
 .compra3 h2 {
   font-family: Zen Antique;
   font-size: 30px;
@@ -54,6 +61,7 @@
   margin: 0;
   font-weight: 700;
 }
+
 .compra3 span {
   color: white;
   text-decoration: none;
@@ -65,6 +73,7 @@
   font-weight: 600;
   font-family: Zen Antique;
 }
+
 .compra3 h3 {
   font-family: Zen Antique;
   color: #666666;
@@ -75,22 +84,32 @@
   margin-right: 10px;
   display: inline-block;
 }
+
 .compra4 {
   width: 85%;
   margin-top: 30px;
 }
+
 .compra4 h1 {
   font-size: 15px;
   font-family: Zen Antique;
 }
+
 .compra4 select {
   font-family: Zen Antique;
   width: 70px;
+  text-transform: uppercase;
 }
+
+.compra4 option {
+  text-transform: uppercase;
+}
+
 .compra5 {
   width: 85%;
   margin-top: 30px;
 }
+
 .compra5 button {
   border: 0;
   width: 100%;
@@ -106,6 +125,7 @@
   border-color: #092f61;
   font-weight: 600;
 }
+
 button.compra51 {
   margin-top: 15px;
   border: 0;
@@ -122,63 +142,77 @@ button.compra51 {
   border-color: #0d73aa;
   font-weight: 500;
 }
+
 .compra6 {
   width: 85%;
   margin-top: 50px;
 }
+
 .compra6b {
   font-family: Zen Antique;
   margin-top: 10px;
   font-size: 14px;
   color: #226a7c;
 }
+
 .compra6b:first-child {
   color: #4a4a4a;
 }
+
 .compra6b svg {
   margin-right: 10px;
 }
+
 .compra7 {
   width: 85%;
 }
+
 .compra7 img {
   width: 100%;
   margin-top: 50px;
 }
+
 .compra8 {
   width: 85%;
   margin-top: 50px;
 }
+
 .compra8 h1 {
   font-size: 22px;
   color: #1b3768;
   font-family: Zen Antique;
   font-weight: 500;
 }
+
 .compra8 h2 {
   color: #515151;
   font-size: 18px;
   font-family: Zen Antique;
   margin-top: 20px;
 }
+
 .compra8 p {
   color: #4b4f58;
   margin-top: 15px;
   font-family: Zen Antique;
   line-height: 1.6;
   font-size: 15px;
+  word-wrap: break-word;
 }
 
 .compra_desktop {
   display: none;
 }
+
 @media screen and (min-width: 992px) and (max-width: 4000px) {
   .compra {
     display: none;
   }
+
   .desktop1 {
     width: 50%;
   }
+
   .compra_desktop {
     display: block;
     width: 70%;
@@ -186,6 +220,7 @@ button.compra51 {
     margin-top: 50px;
     margin-bottom: 30px;
   }
+
   .desktop {
     display: flex;
   }

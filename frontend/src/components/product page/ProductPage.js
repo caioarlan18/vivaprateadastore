@@ -4,20 +4,33 @@ import { Footer } from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import api from '../../axiosConfig/axios';
 import styles from './ProductPage.module.css';
-import { Link } from "react-router-dom";
 import { FaExchangeAlt, FaShieldAlt } from "react-icons/fa";
 import Bandeira1 from '../images/bandeira2.webp';
 import Bandeira2 from '../images/bandeiras cartao1.webp';
 export function ProductPage() {
     const { id } = useParams();
     const [product, setProduct] = useState('');
+    const [varArray, setVarArray] = useState([])
     useEffect(() => {
         async function fetchProduct() {
             const response = await api.get(`/product/read/${id}`);
             setProduct(response.data);
+            const variationArray = response.data.variations.replace(/\s/g, '').split(",");
+            setVarArray(variationArray)
+            setSelectVar(variationArray[0])
         }
+
+
+
         fetchProduct();
     }, [])
+
+
+
+    const [selectVar, setSelectVar] = useState();
+    function handleVariation(e) {
+        setSelectVar(e.target.value);
+    }
     return (
         <div>
             <Header />
@@ -27,16 +40,25 @@ export function ProductPage() {
                 </div>
 
                 <div className={styles.compra2}>
-                    {/* prop de titulo */}
                     <h1>{product.title}</h1>
-                    <a href="#moreinfo2">Mais informações</a>
+                    <a href="#moreinfo">Mais informações</a>
 
                 </div>
                 <div className={styles.compra3}>
-                    {/* prop de custoR e custoP*/}
                     <h2>R${product.price}</h2>
                 </div>
+                {varArray &&
+                    <div className={styles.compra4}>
 
+                        <select value={selectVar} onChange={handleVariation}>
+                            {varArray.map((option, index) => (
+                                <option key={index} value={option} >{option}</option>
+                            ))}
+                        </select>
+
+
+                    </div>
+                }
                 <div className={styles.compra5}>
                     <button  >COMPRAR</button>
                     <button className={styles.compra51}>ADICIONAR AO CARRINHO</button>
@@ -56,7 +78,6 @@ export function ProductPage() {
                 </div>
                 <div className={styles.compra8} id="moreinfo">
                     <h1>Informações do produto</h1>
-                    {/* colocar prop desc */}
                     <h2>Descrição</h2>
                     <p>
                         {product.description}
@@ -79,15 +100,26 @@ export function ProductPage() {
                     </div>
                     <div className={styles.desktop1}>
                         <div className={styles.compra2}>
-                            {/* prop de titulo */}
                             <h1>{product.title}</h1>
-                            <Link smooth to="#moreinfo2">Mais informações</Link>
+                            <a href="#moreinfo2">Mais informações</a>
 
                         </div>
                         <div className={styles.compra3}>
-                            {/* prop de custoR e custoP*/}
                             <h2>R${product.price}</h2>
                         </div>
+
+                        {varArray &&
+                            <div className={styles.compra4}>
+
+                                <select value={selectVar} onChange={handleVariation}>
+                                    {varArray.map((option, index) => (
+                                        <option key={index} value={option} >{option}</option>
+                                    ))}
+                                </select>
+
+
+                            </div>
+                        }
 
                         <div className={styles.compra5}>
                             <button>COMPRAR</button>
@@ -110,7 +142,6 @@ export function ProductPage() {
                 </div>
                 <div className={styles.compra8} id="moreinfo2">
                     <h1>Informações do produto</h1>
-                    {/* colocar prop desc */}
                     <h2>Descrição</h2>
                     <p>
                         {product.description}
