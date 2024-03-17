@@ -109,6 +109,13 @@ module.exports = {
         }
     },
 
+    async readFavorites(req, res) {
+        const userId = req.params.userId;
+        const user = await userModel.findById(userId);
+        return res.status(200).json(user.favoriteProduct);
+
+    },
+
     async readOne(req, res) {
         const productId = req.params.id;
         const product = await productModel.findById(productId);

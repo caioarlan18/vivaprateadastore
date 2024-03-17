@@ -3,7 +3,7 @@ import api from '../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Card } from 'antd';
-import { ShoppingCartOutlined, HeartOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -29,47 +29,52 @@ export function SliderProduct() {
     }
     const userId = localStorage.getItem("id");
     const token = localStorage.getItem("token");
-    const userdata = JSON.parse(localStorage.getItem('userdata'));
     const [favoriteExists, setFavoriteExists] = useState(false);
     const [favorite, setFavorite] = useState([]);
     async function addFavorite(id) {
-        if (!userId || !token || !userdata) {
+        if (!userId || !token) {
             toast.error("Para adicionar um produto aos favoritos é preciso estar logado");
-        } else {
-            setFavorite(userdata.favoriteProduct);
-            favorite.map((favorito) => {
+            return;
+        }
+        try {
+            const response = await api.get(`/product/readfavorites/${userId}`);
+            const favorites = response.data;
+
+            let favoriteExists = false;
+
+            favorites.forEach(async (favorito) => {
                 if (id === favorito._id) {
-                    setFavoriteExists(true);
-                } else {
-                    setFavoriteExists(false);
+                    favoriteExists = true;
+                    try {
+                        const response = await api.post(`/product/removefavorite/${id}`, { userId });
+                        toast.success(response.data.msg);
+                    } catch (err) {
+                        console.error(err.response.data.msg);
+                    }
                 }
-            })
+            });
             if (!favoriteExists) {
                 try {
-                    const response = await api.post(`/product/addfavorite/${id}`, {
-                        userId
-                    });
-                    setFavoriteExists(true);
-                    toast.success(response.data.msg)
+                    const response = await api.post(`/product/addfavorite/${id}`, { userId });
+                    toast.success(response.data.msg);
                 } catch (err) {
-                    console.log(err.response.data.msg)
-                }
-
-            } else {
-                try {
-                    const response = await api.post(`/product/removefavorite/${id}`, {
-                        userId
-                    });
-                    setFavoriteExists(false);
-                    toast.success(response.data.msg)
-                } catch (err) {
-                    console.log(err.response.data.msg)
-
+                    console.error(err.response.data.msg);
                 }
             }
+        } catch (err) {
+            console.error(err.response.data.msg);
         }
     }
+    useEffect(() => {
+        async function fetchFavorites() {
+            if (userId || token) {
+                const response = await api.get(`/product/readfavorites/${userId}`);
+                setFavorite(response.data);
+            }
 
+        }
+        fetchFavorites();
+    }, [addFavorite])
     return (
         <div className={styles.sliderProduct}>
             <ToastContainer />
@@ -89,7 +94,9 @@ export function SliderProduct() {
                             cover={<img src={`http://localhost:8080/${produto.src}`} alt="imagem do produto" />}
                             actions={[
                                 <ShoppingCartOutlined />,
-                                <HeartOutlined onClick={() => addFavorite(produto._id)} />
+                                favorite.some(favorite => favorite._id === produto._id) ?
+                                    <HeartFilled onClick={() => addFavorite(produto._id)} style={{ color: 'red' }} /> :
+                                    <HeartOutlined onClick={() => addFavorite(produto._id)} />
                             ]}
                         >
                             <Meta
@@ -102,6 +109,6 @@ export function SliderProduct() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div>
+        </div >
     );
 }
