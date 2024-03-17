@@ -20,4 +20,5 @@ routes.get("/product/all", ProductController.read);
 routes.post("/product/removefavorite/:id", ProductController.removeFavorite);
 routes.get("/product/read/:id", ProductController.readOne);
 routes.get("/product/readfavorites/:userId", ProductController.readFavorites);
+routes.get("/product/renderfavorite/:userId", ProductController.renderizarProduto);
 module.exports = routes;

@@ -29,7 +29,6 @@ export function SliderProduct() {
     }
     const userId = localStorage.getItem("id");
     const token = localStorage.getItem("token");
-    const [favoriteExists, setFavoriteExists] = useState(false);
     const [favorite, setFavorite] = useState([]);
     async function addFavorite(id) {
         if (!userId || !token) {
@@ -47,7 +46,6 @@ export function SliderProduct() {
                     favoriteExists = true;
                     try {
                         const response = await api.post(`/product/removefavorite/${id}`, { userId });
-                        toast.success(response.data.msg);
                     } catch (err) {
                         console.error(err.response.data.msg);
                     }
@@ -56,7 +54,6 @@ export function SliderProduct() {
             if (!favoriteExists) {
                 try {
                     const response = await api.post(`/product/addfavorite/${id}`, { userId });
-                    toast.success(response.data.msg);
                 } catch (err) {
                     console.error(err.response.data.msg);
                 }
@@ -95,7 +92,7 @@ export function SliderProduct() {
                             actions={[
                                 <ShoppingCartOutlined />,
                                 favorite.some(favorite => favorite._id === produto._id) ?
-                                    <HeartFilled onClick={() => addFavorite(produto._id)} style={{ color: 'red' }} /> :
+                                    <HeartFilled onClick={() => addFavorite(produto._id)} style={{ color: '#a4003d' }} /> :
                                     <HeartOutlined onClick={() => addFavorite(produto._id)} />
                             ]}
                         >

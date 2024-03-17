@@ -111,9 +111,25 @@ module.exports = {
 
     async readFavorites(req, res) {
         const userId = req.params.userId;
+        if (!userId) {
+            return res.status(400).json({ msg: "É preciso estar logado" });
+        }
         const user = await userModel.findById(userId);
         return res.status(200).json(user.favoriteProduct);
 
+
+    },
+    async renderizarProduto(req, res) {
+        const userId = req.params.userId;
+        if (!userId) {
+            return res.status(400).json({ msg: "É preciso estar logado" });
+        }
+        const user = await userModel.findById(userId);
+        const favoriteProductsIds = user.favoriteProduct;
+        const favoriteProducts = await productModel.find({
+            _id: { $in: favoriteProductsIds }
+        });
+        return res.status(200).json(favoriteProducts);
     },
 
     async readOne(req, res) {
