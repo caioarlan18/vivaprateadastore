@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { animateScroll as scroll } from 'react-scroll';
+
 const { Meta } = Card;
 
 export function SliderProduct() {
@@ -26,6 +28,8 @@ export function SliderProduct() {
     }, []);
     function comprar(id) {
         navigate(`/productpage/${id}`);
+        scroll.scrollToTop({ duration: 0 });
+
     }
     const userId = localStorage.getItem("id");
     const token = localStorage.getItem("token");
@@ -72,6 +76,34 @@ export function SliderProduct() {
         }
         fetchFavorites();
     }, [addFavorite])
+
+
+    const [cartItems, setCartItems] = useState([]);
+
+    async function addCart(id) {
+        try {
+            const response = await api.get(`/product/read/${id}`);
+            if (!response.data.variations) {
+                const updatedCartItems = [...cartItems, response.data];
+                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+                toast.success("Adicionado ao carrinho com sucesso")
+            } else {
+                toast.error("Esse produto possui variações, entre no produto e escolha para depois adicionar ao carrinho")
+            }
+
+        } catch (err) {
+            toast.error(err.response.data.msg)
+        }
+    }
+    useEffect(() => {
+        const savedCartItems = localStorage.getItem('cartItems');
+        if (savedCartItems) {
+            setCartItems(JSON.parse(savedCartItems));
+        }
+    }, []);
+
+
+
     return (
         <div className={styles.sliderProduct}>
             <ToastContainer />
@@ -90,7 +122,7 @@ export function SliderProduct() {
                             className={styles.card1}
                             cover={<img src={`http://localhost:8080/${produto.src}`} alt="imagem do produto" />}
                             actions={[
-                                <ShoppingCartOutlined />,
+                                <ShoppingCartOutlined onClick={() => addCart(produto._id)} />,
                                 favorite.some(favorite => favorite._id === produto._id) ?
                                     <HeartFilled onClick={() => addFavorite(produto._id)} style={{ color: '#a4003d' }} /> :
                                     <HeartOutlined onClick={() => addFavorite(produto._id)} />

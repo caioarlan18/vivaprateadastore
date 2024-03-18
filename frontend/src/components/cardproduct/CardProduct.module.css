@@ -1,0 +1,52 @@
+.card1 {
+    width: 40%;
+    margin: 10px 20px;
+}
+
+.card1 {
+    margin: 20px 0px;
+}
+
+.card1 h1 {
+    color: #0d4389;
+    font-family: Zen Antique;
+    font-size: 23px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.card1 h2 {
+    font-size: 17px;
+    font-family: Zen Antique;
+    font-weight: 400;
+    color: #0d4389;
+    text-transform: capitalize;
+}
+
+.card1 p {
+    color: #0d4389;
+    font-size: 21px;
+    font-family: Zen Antique;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.card1 button {
+    background-color: #0d4389;
+    margin-top: 15px;
+    border: 0;
+    width: 100%;
+    padding: 5px;
+    color: white;
+    font-family: Zen Antique;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media screen and (min-width:992px) and (max-width: 4000px) {
+    .card1 {
+        width: 20%;
+    }
+}

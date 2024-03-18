@@ -50,8 +50,8 @@ export function Header() {
                 </Link>
                 <div className={styles.headerMobile1} >
                     <FaSearch />
-                    <Link to={"/carrinho"}><FaShoppingCart /></Link>
                     <Link to={"/favorites"}><FaHeart /></Link>
+                    <Link to={"/carrinho"}><FaShoppingCart /></Link>
                     <FaBars onClick={menuOpen} />
                 </div>
             </div>
@@ -70,7 +70,7 @@ export function Header() {
                     <div className={styles.headerDesktop1}>
                         <Link to={"/login"}>{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}<FaUser /></Link>
 
-                        <FaShoppingCart />
+                        <Link to={'/carrinho'}><FaShoppingCart /></Link>
                         <Link to={"/favorites"}><FaHeart /></Link>
 
                     </div>

@@ -3,10 +3,12 @@ import { useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import api from '../../../axiosConfig/axios';
+import { animateScroll as scroll } from 'react-scroll';
+
 export function AddProduct() {
     const [imageSrc, setImageSrc] = useState(null);
     const [title, setTitle] = useState('');
-    const [price, setPrice] = useState();
+    const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [variations, setVariations] = useState('');
@@ -69,6 +71,8 @@ export function AddProduct() {
             setImageSrc("");
             fileInputRef.current.value = '';
             toast.success(response.data.msg);
+            scroll.scrollToTop({ duration: 0 });
+
         } catch (err) {
             toast.error(err.response.data.msg);
         }
@@ -99,7 +103,7 @@ export function AddProduct() {
             </div>
             <div className={styles.add1}>
                 <label >Preço do produto</label>
-                <input placeholder='Ex: 99.99' type="number" value={price} onChange={handlePrice} />
+                <input placeholder='Ex: 99,99' type="text" value={price} onChange={handlePrice} />
             </div>
             <div className={styles.add1}>
                 <label >Descrição do produto</label>
@@ -110,7 +114,7 @@ export function AddProduct() {
                 <input placeholder='Ex: Corrente masculina' type="text" value={category} onChange={handleCategory} />
             </div>
             <div className={styles.add1}>
-                <label >Variações</label>
+                <label >Variações (opcional)</label>
                 <input placeholder='Ex: P, M, G' type="text" value={variations} onChange={handleVariations} />
                 <button onClick={handleSubmit}>Criar</button>
             </div>

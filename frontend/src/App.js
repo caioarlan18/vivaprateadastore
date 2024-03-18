@@ -8,6 +8,7 @@ import { Painel } from './components/Painel/Painel';
 import { VerifyLogged } from './components/VerifyLogged/VerifyLogged';
 import { ProductPage } from './components/product page/ProductPage';
 import { FavoriteProducts } from './components/favorite/FavoriteProducts';
+import { Carrinho } from './components/carrinho/Carrinho';
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
         <Route path='/painel' element={<VerifyToken><Painel /></VerifyToken>} />
         <Route path='/productpage/:id' element={<ProductPage />} />
         <Route path='/favorites' element={<FavoriteProducts />} />
+        <Route path={'/carrinho'} element={<Carrinho />} />
       </Routes>
     </Router>
   );

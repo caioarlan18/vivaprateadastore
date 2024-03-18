@@ -9,6 +9,7 @@ import { Card } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { ShoppingCartOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
+import { ToastContainer, toast } from "react-toastify";
 const { Meta } = Card;
 
 export function FavoriteProducts() {
@@ -42,6 +43,30 @@ export function FavoriteProducts() {
         }
 
     }
+
+    const [cartItems, setCartItems] = useState([]);
+
+    async function addCart(id) {
+        try {
+            const response = await api.get(`/product/read/${id}`);
+            if (!response.data.variations) {
+                const updatedCartItems = [...cartItems, response.data];
+                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+                toast.success("Adicionado ao carrinho com sucesso")
+            } else {
+                toast.error("Esse produto possui variações, entre no produto e escolha para depois adicionar ao carrinho")
+            }
+
+        } catch (err) {
+            toast.error(err.response.data.msg)
+        }
+    }
+    useEffect(() => {
+        const savedCartItems = localStorage.getItem('cartItems');
+        if (savedCartItems) {
+            setCartItems(JSON.parse(savedCartItems));
+        }
+    }, []);
     return (
         <div>
             <Header />
@@ -55,13 +80,14 @@ export function FavoriteProducts() {
             {isAuth ? (
                 products.length ? (
                     <div className={styles.card}>
+                        <ToastContainer />
                         {products.map((produto, index) => (
                             <Card
                                 hoverable
                                 className={styles.card1}
                                 cover={<img alt="example" src={`http://localhost:8080/${produto.src}`} />}
                                 actions={[
-                                    <ShoppingCartOutlined />,
+                                    <ShoppingCartOutlined onClick={() => addCart(produto._id)} />,
                                     <HeartFilled onClick={() => removeFavorite(produto._id)} style={{ color: '#a4003d' }} />
                                 ]}
                                 key={index}
