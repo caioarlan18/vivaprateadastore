@@ -9,6 +9,7 @@ import { VerifyLogged } from './components/VerifyLogged/VerifyLogged';
 import { ProductPage } from './components/product page/ProductPage';
 import { FavoriteProducts } from './components/favorite/FavoriteProducts';
 import { Carrinho } from './components/carrinho/Carrinho';
+import { UpdateProduct } from './components/Painel/updateproduct/UpdateProduct';
 function App() {
   return (
     <Router>
@@ -21,7 +22,8 @@ function App() {
         <Route path='/painel' element={<VerifyToken><Painel /></VerifyToken>} />
         <Route path='/productpage/:id' element={<ProductPage />} />
         <Route path='/favorites' element={<FavoriteProducts />} />
-        <Route path={'/carrinho'} element={<Carrinho />} />
+        <Route path='/carrinho' element={<Carrinho />} />
+        <Route path='/update/:id' element={<UpdateProduct />} />
       </Routes>
     </Router>
   );

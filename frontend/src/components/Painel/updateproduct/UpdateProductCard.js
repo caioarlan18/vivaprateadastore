@@ -1,28 +1,19 @@
 import React from 'react';
 import { Card } from 'antd';
-import styles from './DeleteProductCard.module.css';
-import { DeleteOutlined } from '@ant-design/icons';
+import styles from '../DeleteProductCard/DeleteProductCard.module.css';
+import { ReloadOutlined } from '@ant-design/icons';
 import api from '../../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useNavigate } from 'react-router-dom';
 const { Meta } = Card;
 
-const DeleteProductCard = () => {
+const UpdateProductCard = () => {
     const [products, setProducts] = useState([])
-
-    async function handleDelete(id) {
-        try {
-            const userId = localStorage.getItem("id");
-            const response = await api.post(`/product/delete/${id}`, {
-                userId
-            });
-            toast.success(response.data.msg);
-
-        } catch (err) {
-            toast.error(err.response.data.msg);
-        }
+    const navigate = useNavigate();
+    async function goUpdate(id) {
+        navigate(`/update/${id}`)
     }
 
     useEffect(() => {
@@ -31,7 +22,7 @@ const DeleteProductCard = () => {
             setProducts(response.data);
         }
         allProducts();
-    }, [handleDelete])
+    }, [])
 
     return (
         <div className={styles.card}>
@@ -43,7 +34,7 @@ const DeleteProductCard = () => {
                         className={styles.card1}
                         cover={<img alt="example" src={`http://localhost:8080/${produto.src}`} />}
                         actions={[
-                            <DeleteOutlined onClick={() => handleDelete(produto._id)}
+                            <ReloadOutlined onClick={() => goUpdate(produto._id)}
 
                             />
                         ]}
@@ -65,4 +56,4 @@ const DeleteProductCard = () => {
     );
 };
 
-export default DeleteProductCard;
+export default UpdateProductCard;

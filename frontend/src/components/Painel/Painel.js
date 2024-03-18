@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AddProduct } from "./addProduct/AddProduct";
 import DeleteProductCard from "./DeleteProductCard/DeleteProductCard";
 import { useNavigate } from "react-router-dom";
+import UpdateProductCard from "./updateproduct/UpdateProductCard";
 export function Painel() {
     const navigate = useNavigate();
     const userdata = JSON.parse(localStorage.getItem("userdata"));
@@ -37,7 +38,10 @@ export function Painel() {
                 currentMenuItem === 'addproduct' &&
                 <AddProduct />
             }
-
+            {
+                currentMenuItem === 'updateproduct' &&
+                <UpdateProductCard />
+            }
             {
                 currentMenuItem === 'deleteproduct' &&
                 <DeleteProductCard />

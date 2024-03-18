@@ -88,7 +88,7 @@ export function SliderProduct() {
                 localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
                 toast.success("Adicionado ao carrinho com sucesso")
             } else {
-                toast.error("Esse produto possui variações, entre no produto e escolha para depois adicionar ao carrinho")
+                toast.error("Esse produto possui variações, entre no produto e escolha, para depois adicionar ao carrinho")
             }
 
         } catch (err) {

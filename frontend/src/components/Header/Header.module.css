@@ -50,6 +50,15 @@ svg {
 
 }
 
+.headerMobile1 a,
+.headerDesktop1 a {
+    position: relative;
+}
+
+.headerMobile1 span,
+.count {
+    position: absolute;
+}
 
 
 
@@ -71,7 +80,7 @@ svg {
 
 .active {
     overflow: visible;
-    width: 60%;
+    width: 80%;
     transition: .3s;
 }
 
@@ -177,12 +186,11 @@ svg {
     }
 
 
+
+
     .headerDesktop1 svg {
         width: 20px;
         height: 30px;
-    }
-
-    .headerDesktop1 svg {
         margin-left: 10px;
         color: #0D4389;
     }

@@ -33,11 +33,11 @@ export function SubMenu({ onMenuItemClick }) {
                             <Menu.Item key="addproduct" icon={<PlusOutlined />}>
                                 Adicionar Produto
                             </Menu.Item>
-                            <Menu.Item key="deleteproduct" icon={<MinusOutlined />}>
-                                Deletar Produto
-                            </Menu.Item>
                             <Menu.Item key="updateproduct" icon={<ReloadOutlined />}>
                                 Atualizar Produto
+                            </Menu.Item>
+                            <Menu.Item key="deleteproduct" icon={<MinusOutlined />}>
+                                Deletar Produto
                             </Menu.Item>
                         </>
                     }

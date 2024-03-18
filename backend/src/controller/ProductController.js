@@ -41,7 +41,36 @@ module.exports = {
     },
 
     async update(req, res) {
-        res.json("Em produção");
+
+        const { title, price, description, category, variations, productId } = req.body;
+        const file = req.file;
+
+
+        if (!title || !price || !description || !category) {
+            return res.status(400).json({ msg: "Todos os campos são obrigatórios" });
+        }
+
+        const product = await productModel.findById(productId);
+
+        if (!product) {
+            return res.status(404).json({ msg: "Produto não encontrado" });
+        }
+        product.title = title;
+        product.price = price;
+        product.description = description;
+        product.category = category;
+        product.variations = variations;
+
+        if (file) {
+            if (product.src) {
+                fs.unlinkSync(product.src);
+            }
+            product.src = file.path;
+        }
+
+        await product.save();
+        return res.status(200).json({ msg: "Produto atualizado com sucesso", product });
+
     },
 
     async delete(req, res) {

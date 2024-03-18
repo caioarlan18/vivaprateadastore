@@ -13,12 +13,16 @@ routes.get("/auth/logged/:id", userController.checkToken, userController.logged)
 
 routes.post("/product/create", upload.single("file"), ProductController.verifyAdmin, ProductController.create);
 routes.post("/product/delete/:id", ProductController.verifyAdmin, ProductController.delete);
-
-// public route product
+routes.put("/product/update", ProductController.verifyAdmin, ProductController.update);
+// public route favorite product
 routes.post("/product/addfavorite/:id", ProductController.addFavorite);
-routes.get("/product/all", ProductController.read);
-routes.post("/product/removefavorite/:id", ProductController.removeFavorite);
-routes.get("/product/read/:id", ProductController.readOne);
 routes.get("/product/readfavorites/:userId", ProductController.readFavorites);
+routes.post("/product/removefavorite/:id", ProductController.removeFavorite);
 routes.get("/product/renderfavorite/:userId", ProductController.renderizarProduto);
+
+//public route product
+routes.get("/product/all", ProductController.read);
+routes.get("/product/read/:id", ProductController.readOne);
+
+
 module.exports = routes;

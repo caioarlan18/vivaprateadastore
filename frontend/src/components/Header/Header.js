@@ -36,7 +36,15 @@ export function Header() {
         }
     }, [])
 
+    //contador de itens carrinho
+    const [cartItems, setCartItems] = useState([])
+    const [countCart, setCountCart] = useState(0);
+    useEffect(() => {
 
+        const cartItemsSaved = JSON.parse(localStorage.getItem("cartItems"));
+        setCartItems(cartItemsSaved);
+        setCountCart(cartItems.length);
+    }, [])
 
 
     return (
@@ -50,8 +58,13 @@ export function Header() {
                 </Link>
                 <div className={styles.headerMobile1} >
                     <FaSearch />
-                    <Link to={"/favorites"}><FaHeart /></Link>
-                    <Link to={"/carrinho"}><FaShoppingCart /></Link>
+                    <Link to={"/favorites"}>
+                        <FaHeart />
+                    </Link>
+                    <Link to={"/carrinho"}>
+                        <FaShoppingCart />
+                        <span>{countCart}</span>
+                    </Link>
                     <FaBars onClick={menuOpen} />
                 </div>
             </div>
@@ -69,9 +82,9 @@ export function Header() {
                     </div>
                     <div className={styles.headerDesktop1}>
                         <Link to={"/login"}>{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}<FaUser /></Link>
-
-                        <Link to={'/carrinho'}><FaShoppingCart /></Link>
                         <Link to={"/favorites"}><FaHeart /></Link>
+                        <Link to={'/carrinho'}><FaShoppingCart /></Link>
+
 
                     </div>
                 </div>
