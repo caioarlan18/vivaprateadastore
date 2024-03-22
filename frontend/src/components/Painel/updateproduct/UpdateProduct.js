@@ -58,7 +58,7 @@ export function UpdateProduct() {
         const userId = localStorage.getItem("id");
         const productId = id;
         const data = new FormData();
-        data.append('userId', userId)
+        data.append('userId', userId);
         data.append('title', title);
         data.append('price', price);
         data.append('description', description);
@@ -75,8 +75,8 @@ export function UpdateProduct() {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            toast.success(response.data.msg);
             navigate("/painel");
+            toast.success(response.data.msg);
         } catch (err) {
             toast.error(err.response.data.msg);
         }
@@ -87,7 +87,7 @@ export function UpdateProduct() {
     }
 
     if (!product) {
-        return null; // Renderizar algo enquanto os dados do produto estão sendo carregados
+        return null;
     }
 
     return (

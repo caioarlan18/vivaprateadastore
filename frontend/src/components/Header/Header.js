@@ -57,7 +57,6 @@ export function Header() {
                     <h1>VIVA <br />Prateada</h1>
                 </Link>
                 <div className={styles.headerMobile1} >
-                    <FaSearch />
                     <Link to={"/favorites"}>
                         <FaHeart />
                     </Link>
@@ -74,12 +73,13 @@ export function Header() {
                 <div className={styles.headerDesktop}>
                     <Link className={styles.headerDesktop1} to={"/"}>
                         <img src={logotipo} alt="logo do site" />
-
                         <h1>VIVA<br />Prateada</h1>
                     </Link>
-                    <div className={styles.headerDesktop1}>
-                        <FaSearch className={styles.lupa} /><input type="text" placeholder='Pesquisar' />
+                    <div onClick={handleOpenCat} className={styles.drop}>
+                        <span>Categorias <FaAngleDown /></span>
+                        <Link to={"/novidades"}><span>Novidades</span></Link>
                     </div>
+
                     <div className={styles.headerDesktop1}>
                         <Link to={"/login"}>{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}<FaUser /></Link>
                         <Link to={"/favorites"}><FaHeart /></Link>
@@ -88,13 +88,7 @@ export function Header() {
 
                     </div>
                 </div>
-                <div className={styles.menubottom}>
 
-                    <div onClick={handleOpenCat}>
-                        <span>Categorias <FaAngleDown /></span>
-                    </div>
-                    <Link to={"/novidades"}><span>Novidades</span></Link>
-                </div>
                 {openCat && <div className={styles.menubottom1}>
                     <div className={styles.menubottom2}>
                         <h1>Masculino</h1>

@@ -24,15 +24,17 @@ export function Carrinho() {
     const [total, setTotal] = useState(0);
     useEffect(() => {
         function total() {
-            const sum = cart.reduce((accumulator, item) => {
-                const priceStr = item.price.replace('R$', '').trim();
-                const price = parseFloat(priceStr.replace(',', '.'));
-                return accumulator + price;
-            }, 0);
-            setTotal(sum);
+            if (cart) {
+                const sum = cart.reduce((accumulator, item) => {
+                    const priceStr = item.price.replace('R$', '').trim();
+                    const price = parseFloat(priceStr.replace(',', '.'));
+                    return accumulator + price;
+                }, 0);
+                setTotal(sum);
+            }
         }
         total();
-    }, [cart])
+    }, [cart]);
 
 
 

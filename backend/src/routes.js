@@ -13,7 +13,7 @@ routes.get("/auth/logged/:id", userController.checkToken, userController.logged)
 
 routes.post("/product/create", upload.single("file"), ProductController.verifyAdmin, ProductController.create);
 routes.post("/product/delete/:id", ProductController.verifyAdmin, ProductController.delete);
-routes.put("/product/update", ProductController.verifyAdmin, ProductController.update);
+routes.put("/product/update", upload.single("file"), ProductController.verifyAdmin, ProductController.update);
 // public route favorite product
 routes.post("/product/addfavorite/:id", ProductController.addFavorite);
 routes.get("/product/readfavorites/:userId", ProductController.readFavorites);

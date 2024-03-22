@@ -80,7 +80,7 @@ svg {
 
 .active {
     overflow: visible;
-    width: 80%;
+    width: 70%;
     transition: .3s;
 }
 
@@ -204,20 +204,7 @@ svg {
 
     }
 
-    .headerDesktop1 input {
-        outline: none;
-        height: 30px;
-        width: 500px;
-        border: 2px solid #0D4389;
-        padding: 5px;
-        border-left: 0;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        font-size: 20px;
-        font-family: Zen Antique;
-        text-indent: 2px;
 
-    }
 
     .menubottom a {
         text-decoration: none;
@@ -231,13 +218,17 @@ svg {
         align-items: center;
     }
 
-    .menubottom span {
-        color: white;
+    .drop span {
+        color: #0D4389;
         cursor: pointer;
         font-size: 25px;
         font-family: Zen Antique;
         font-weight: 600;
         margin-left: 60px;
+    }
+
+    .drop a {
+        text-decoration: none;
     }
 
     .menubottom1 {
