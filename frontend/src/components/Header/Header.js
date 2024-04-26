@@ -3,24 +3,13 @@ import { FaBars, FaAngleDown, FaAngleRight, FaUser, FaShoppingCart, FaSearch, Fa
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logotipo from '../images/logosite.jpg';
+import categories from '../categoryArray/CategoryArr';
 export function Header() {
-    const [masc, setMasc] = useState(false);
-    const [fem, setFem] = useState(false);
-    const [unissex, setUnissex] = useState(false);
     const [openCat, setOpenCat] = useState(false);
     const [logged, setLogged] = useState(false);
     function menuOpen() {
         const menu = document.querySelector(`.${styles.menuHamburguer}`);
         menu.classList.toggle(styles.active);
-    }
-    function handleMasc() {
-        setMasc(!masc);
-    }
-    function handleFem() {
-        setFem(!fem);
-    }
-    function handleUnissex() {
-        setUnissex(!unissex);
     }
     function handleOpenCat() {
         setOpenCat(!openCat);
@@ -116,37 +105,11 @@ export function Header() {
                     <Link to={'/login'}><FaUser />{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}</Link>
                 </div>
 
-                <div className={styles.cat}  >
-                    <p onClick={handleMasc}>Masculino <FaAngleDown /> </p>
-                    {masc &&
-                        <div className={styles.subcat}>
-                            <Link to={"/correntemasculino"}>Corrente Masculino</Link>
-                            <Link to={"/brincomasculino"}>Brinco Masculino</Link>
-                        </div>
-                    }
+                <div className={styles.nav2} >
+                    {categories.map((cat, index) => (
+                        <Link to={`/category/${cat}`}>{cat}</Link>
+                    ))}
                 </div>
-                <div className={styles.cat}  >
-                    <p onClick={handleUnissex}>Unissex<FaAngleDown /> </p>
-                    {unissex &&
-                        <div className={styles.subcat}>
-                            <Link to={"/correnteunissex"}>Corrente Unissex</Link>
-                            <Link to={"/brincounissex"}>Brinco Unissex</Link>
-                        </div>
-                    }
-                </div>
-                <div className={styles.cat} >
-                    <p onClick={handleFem}>Feminino <FaAngleDown /></p>
-                    {fem &&
-                        <div className={styles.subcat}>
-                            <Link to={"/correntefeminina"}>Corrente Feminino</Link>
-                            <Link to={"/brincofeminino"}>Brinco Feminino</Link>
-                        </div>
-                    }
-                </div>
-                <div className={styles.cat}>
-                    <Link to={"/novidades"}>Novidades <FaAngleRight /></Link>
-                </div>
-
             </div>
 
         </div>

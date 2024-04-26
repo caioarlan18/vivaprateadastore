@@ -10,6 +10,7 @@ import { ProductPage } from './components/product page/ProductPage';
 import { FavoriteProducts } from './components/favorite/FavoriteProducts';
 import { Carrinho } from './components/carrinho/Carrinho';
 import { UpdateProduct } from './components/Painel/updateproduct/UpdateProduct';
+import { Category } from './components/categorias/Category';
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         <Route path='/favorites' element={<FavoriteProducts />} />
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/update/:id' element={<UpdateProduct />} />
+        <Route path='/category/:name' element={<Category/>}/>
       </Routes>
     </Router>
   );

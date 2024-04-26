@@ -5,6 +5,7 @@ import api from '../../../axiosConfig/axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Header } from '../../Header/Header';
 import { Footer } from '../../Footer/Footer';
+import categories from '../../categoryArray/CategoryArr';
 
 export function UpdateProduct() {
     const { id } = useParams();
@@ -18,7 +19,6 @@ export function UpdateProduct() {
     const [category, setCategory] = useState('');
     const [variations, setVariations] = useState('');
     const fileInputRef = useRef(null);
-
     useEffect(() => {
         async function fetchProduct() {
             try {
@@ -124,7 +124,11 @@ export function UpdateProduct() {
                 </div>
                 <div className={styles.add1}>
                     <label>Categoria do produto</label>
-                    <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+                    <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                        {categories.map((cat, index) => (
+                            <option value={cat} key={index}>{cat}</option>
+                        ))}
+                    </select>
                 </div>
                 <div className={styles.add1}>
                     <label>Variações (opcional)</label>

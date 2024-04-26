@@ -79,7 +79,7 @@ svg {
 }
 
 .active {
-    overflow: visible;
+    overflow: auto;
     width: 70%;
     transition: .3s;
 }
@@ -106,21 +106,25 @@ svg {
     margin-right: 5px;
 }
 
-.cat {
-    border-bottom: 2px solid whitesmoke;
-    margin-top: 40px;
+.nav2 {
+    margin-top: 30px;
+    
 }
 
-.cat p,
-.cat a {
-    font-size: 25px;
-    margin-left: 15px;
-    cursor: pointer;
+.nav2 a {
     text-decoration: none;
-    color: #0D4389;
+    color: #000000cc;
     font-family: Zen Antique;
-    font-weight: 400;
+    font-size: 17px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 10%;
+    border-bottom: 1px solid #f4f4f4;
 }
+
+
 
 
 
