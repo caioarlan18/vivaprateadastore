@@ -108,7 +108,7 @@ svg {
 
 .nav2 {
     margin-top: 30px;
-    
+
 }
 
 .nav2 a {
@@ -209,19 +209,6 @@ svg {
     }
 
 
-
-    .menubottom a {
-        text-decoration: none;
-    }
-
-    .menubottom {
-        display: flex;
-        height: 100px;
-        background-color: #0D4389;
-        justify-content: center;
-        align-items: center;
-    }
-
     .drop span {
         color: #0D4389;
         cursor: pointer;
@@ -238,6 +225,7 @@ svg {
     .menubottom1 {
         background-color: #0D4389;
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
@@ -262,5 +250,24 @@ svg {
         text-decoration: none;
         font-size: 20px;
         font-weight: 300;
+    }
+
+    .nav2d {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 90%;
+        padding: 20px;
+    }
+
+    .nav2d a {
+        text-decoration: none;
+        color: white;
+        font-family: Zen Antique;
+        font-size: 20px;
+        padding: 0px 10px;
+        margin: 20px 0px;
+        border-left: 1px solid #f4f4f4;
+
     }
 }

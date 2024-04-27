@@ -11,6 +11,9 @@ import { FavoriteProducts } from './components/favorite/FavoriteProducts';
 import { Carrinho } from './components/carrinho/Carrinho';
 import { UpdateProduct } from './components/Painel/updateproduct/UpdateProduct';
 import { Category } from './components/categorias/Category';
+import { Sobre } from './components/instucional/sobre/Sobre';
+import { EnviosEntregas } from './components/instucional/envios e entregas/EnviosEntregas';
+import { TrocasDevo } from './components/instucional/trocas e devo/TrocasDevo';
 function App() {
   return (
     <Router>
@@ -25,7 +28,10 @@ function App() {
         <Route path='/favorites' element={<FavoriteProducts />} />
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/update/:id' element={<UpdateProduct />} />
-        <Route path='/category/:name' element={<Category/>}/>
+        <Route path='/category/:name' element={<Category />} />
+        <Route path='/sobre' element={<Sobre />} />
+        <Route path='/envioentrega' element={<EnviosEntregas />} />
+        <Route path='/trocas' element={<TrocasDevo />} />
       </Routes>
     </Router>
   );

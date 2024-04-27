@@ -41,7 +41,7 @@ module.exports = {
         if (!email || !password) {
             return res.status(401).json({ msg: "Dados faltando" });
         } else if (!user) {
-            return res.status(400).json({ msg: "Esta conta não existe" });
+            return res.status(400).json({ msg: "Email ou senha incorretos" });
         }
         try {
             const token = jwt.sign({

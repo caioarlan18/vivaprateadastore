@@ -1,10 +1,9 @@
 .footer {
     background-color: #04152A;
     display: flex;
-    justify-content: space-between;
-    align-items: end;
-    padding: 40px;
+    flex-direction: column;
 
+    padding: 40px;
 
 }
 
@@ -20,10 +19,16 @@
     margin-top: 40px;
 }
 
-.footer1 h1 {
+.footer1 h1,
+.bandeiras h1 {
     color: white;
     font-family: Zen Antique;
     font-weight: 600;
+    font-size: 30px;
+}
+
+.bandeiras {
+    margin-top: 30px;
 }
 
 .footer1 a {
@@ -38,15 +43,17 @@
 }
 
 .bandeiras img {
-    width: 20%;
+    margin-top: 20px;
+    width: 50%;
 }
 
 @media screen and (min-width: 992px) and (max-width: 4000px) {
     .footer {
-        justify-content: space-around;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .bandeiras img {
-        width: 500px;
+        width: 90%;
     }
 }

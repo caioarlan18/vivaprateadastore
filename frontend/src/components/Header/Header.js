@@ -79,20 +79,10 @@ export function Header() {
                 </div>
 
                 {openCat && <div className={styles.menubottom1}>
-                    <div className={styles.menubottom2}>
-                        <h1>Masculino</h1>
-                        <Link to={"/correntemasculina"}>Corrente Masculino</Link>
-                        <Link to={"/brincomasculino"}>Brinco Masculino</Link>
-                    </div>
-                    <div className={styles.menubottom2}>
-                        <h1>Unissex</h1>
-                        <Link to={"/correnteunissex"}>Corrente Unissex</Link>
-                        <Link to={"/brincounissex"}>Brinco Unissex</Link>
-                    </div>
-                    <div className={styles.menubottom2}>
-                        <h1>Feminino</h1>
-                        <Link to={"/correntefeminino"}>Corrente Feminino</Link>
-                        <Link to={"/brincofeminino"}>Brinco Feminino</Link>
+                    <div className={styles.nav2d} >
+                        {categories.map((cat, index) => (
+                            <Link to={`/category/${cat}`} key={index}>{cat}</Link>
+                        ))}
                     </div>
                 </div>}
 
@@ -107,7 +97,7 @@ export function Header() {
 
                 <div className={styles.nav2} >
                     {categories.map((cat, index) => (
-                        <Link to={`/category/${cat}`}>{cat}</Link>
+                        <Link to={`/category/${cat}`} key={index}>{cat}</Link>
                     ))}
                 </div>
             </div>

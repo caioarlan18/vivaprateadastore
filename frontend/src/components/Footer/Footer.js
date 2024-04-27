@@ -1,9 +1,14 @@
 import styles from './Footer.module.css';
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import bandeira1 from '../images/bandeiras cartao1.webp';
-import bandeira2 from '../images/bandeira2.webp';
+import bandeira from '../images/bandeira_pagamento.webp';
+import { animateScroll as scroll } from "react-scroll";
+
 export function Footer() {
+    function toTop() {
+        scroll.scrollToTop({ duration: 0 });
+
+    }
     return (
         <div className={styles.footer}>
             <div className={styles.instucional}>
@@ -13,16 +18,17 @@ export function Footer() {
                 </div>
                 <div className={styles.footer1}>
                     <h1>Suporte</h1>
-                    <Link to={"/trocas"}><p>Trocas e devoluções</p></Link>
-                    <Link to={"/envioentrega"}><p>Envio e Entrega</p></Link>
+                    <Link to={"/trocas"} onClick={toTop}><p>Trocas e devoluções</p></Link>
+                    <Link to={"/envioentrega"} onClick={toTop}><p>Envio e Entrega</p></Link>
                 </div>
                 <div className={styles.footer1}>
                     <h1>Institucional</h1>
-                    <Link to={"/about"}><p>Quem somos</p></Link>
+                    <Link to={"/sobre"} onClick={toTop}><p>Quem somos</p></Link>
                 </div>
             </div>
             <div className={styles.bandeiras}>
-
+                <h1>Pagamentos</h1>
+                <img src={bandeira} alt="bandeira_pagamento" />
             </div>
         </div >
     )

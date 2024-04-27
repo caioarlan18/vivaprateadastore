@@ -13,7 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     margin-bottom: 50px;
 
 }
@@ -35,8 +35,14 @@
 }
 
 @media screen and (min-width: 992px) and (max-width: 4000px) {
+    .popular1 {
+        justify-content: space-between;
+    }
+
     .popular2 {
         width: 20%;
+        margin: 30px 30px;
+
     }
 
     .popular2 a {

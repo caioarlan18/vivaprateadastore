@@ -1,5 +1,6 @@
 import styles from './Popular.module.css';
 import { Link } from 'react-router-dom';
+import categories from '../categoryArray/CategoryArr';
 export function Popular() {
     return (
         <div className={styles.popular}>
@@ -7,31 +8,12 @@ export function Popular() {
                 <h1>- Popular agora</h1>
             </div>
             <div className={styles.popular1}>
-                <div className={styles.popular2}>
-                    <Link>Corrente Masculina</Link>
-                </div>
-                <div className={styles.popular2}>
-                    <Link>Alianças</Link>
-                </div>
-                <div className={styles.popular2}>
-                    <Link>Brinco Feminino</Link>
-                </div>
-                <div className={styles.popular2}>
-                    <Link>Anéis Masculinos</Link>
-                </div>
-                <div className={styles.popular2}>
-                    <Link>Corrente Masculina</Link>
-                </div>
-                <div className={styles.popular2}>
-                    <Link>Alianças</Link>
-                </div>
-                <div className={styles.popular2}>
-                    <Link>Brinco Feminino</Link>
-                </div>
-                <div className={styles.popular2}>
-                    <Link>Anéis Masculinos</Link>
-                </div>
-
+                {categories.map((cat, index) => (
+                    index < 8 &&
+                    <div className={styles.popular2} key={index}>
+                        <Link to={`/category/${cat}`}>{cat}</Link>
+                    </div>
+                ))}
             </div>
         </div>
     )
