@@ -30,7 +30,7 @@
     color: #0D4389;
     font-family: Zen Antique;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
     text-decoration: none;
 }
 
@@ -46,6 +46,6 @@
     }
 
     .popular2 a {
-        font-size: 25px;
+        font-size: 20px;
     }
 }
