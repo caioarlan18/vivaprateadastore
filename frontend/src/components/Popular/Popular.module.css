@@ -26,7 +26,11 @@
 
 }
 
-.popular2 a {
+a.popular2 {
+    text-decoration: none;
+}
+
+.popular2 span {
     color: #0D4389;
     font-family: Zen Antique;
     font-weight: 500;

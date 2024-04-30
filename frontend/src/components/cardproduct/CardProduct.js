@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import baseurl from '../baseurl/BaseUrl';
 const { Meta } = Card;
 
 export function CardProduct({ src, productId, price, title, category, index }) {
@@ -64,14 +65,13 @@ export function CardProduct({ src, productId, price, title, category, index }) {
     return (
 
         <Card
-            hoverable
             className={styles.card1}
-            cover={<img src={`http://localhost:8080/${src}`} alt="imagem do produto" />}
+            cover={<img src={`${baseurl}/${src}`} alt="imagem do produto" />}
             actions={[
-                <ShoppingCartOutlined />,
+                <ShoppingCartOutlined style={{ fontSize: '18px' }} />,
                 favorite.some(favorite => favorite._id === productId) ?
-                    <HeartFilled onClick={() => addFavorite(productId)} style={{ color: '#a4003d' }} /> :
-                    <HeartOutlined onClick={() => addFavorite(productId)} />
+                    <HeartFilled onClick={() => addFavorite(productId)} style={{ color: '#a4003d', fontSize: '18px' }} /> :
+                    <HeartOutlined onClick={() => addFavorite(productId)} style={{ fontSize: '18px' }} />
             ]}
             key={index}
         >

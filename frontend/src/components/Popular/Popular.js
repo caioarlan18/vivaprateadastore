@@ -10,9 +10,9 @@ export function Popular() {
             <div className={styles.popular1}>
                 {categories.map((cat, index) => (
                     index < 8 &&
-                    <div className={styles.popular2} key={index}>
-                        <Link to={`/category/${cat}`}>{cat}</Link>
-                    </div>
+                    <Link to={`/category/${cat}`} className={styles.popular2} key={index}>
+                        <span >{cat}</span>
+                    </Link>
                 ))}
             </div>
         </div>

@@ -6,7 +6,7 @@ import api from '../../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import baseurl from '../../baseurl/BaseUrl';
 const { Meta } = Card;
 
 const DeleteProductCard = () => {
@@ -39,12 +39,11 @@ const DeleteProductCard = () => {
             {
                 products.map((produto, index) => (
                     <Card
-                        hoverable
                         className={styles.card1}
-                        cover={<img alt="example" src={`http://localhost:8080/${produto.src}`} />}
+                        cover={<img alt="example" src={`${baseurl}/${produto.src}`} />}
                         actions={[
                             <DeleteOutlined onClick={() => handleDelete(produto._id)}
-
+                                style={{ fontSize: '18px' }}
                             />
                         ]}
                         key={index}

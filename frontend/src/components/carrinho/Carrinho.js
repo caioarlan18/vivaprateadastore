@@ -5,6 +5,7 @@ import styles from './Carrinho.module.css';
 import { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import baseurl from '../baseurl/BaseUrl';
 export function Carrinho() {
     const [cart, setCart] = useState([]);
     const navigate = useNavigate();
@@ -68,7 +69,7 @@ export function Carrinho() {
                     {cart.map((item, index) => (
                         <div key={index} className={styles.carrinho2}>
                             <div className={styles.carrinho3}>
-                                <img src={`http://localhost:8080/${item.src}`} alt="imagem do produto" />
+                                <img src={`${baseurl}/${item.src}`} alt="imagem do produto" />
                                 <p onClick={() => removeFromCart(index)}>remover</p>
                             </div>
                             <div className={styles.carrinho3}>

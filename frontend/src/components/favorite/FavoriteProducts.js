@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { Card } from 'antd';
 import { useNavigate } from 'react-router-dom';
-
-import { ShoppingCartOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
+import baseurl from '../baseurl/BaseUrl';
+import { ShoppingCartOutlined, HeartFilled } from '@ant-design/icons';
 import { ToastContainer, toast } from "react-toastify";
 const { Meta } = Card;
 
@@ -85,10 +85,10 @@ export function FavoriteProducts() {
                             <Card
                                 hoverable
                                 className={styles.card1}
-                                cover={<img alt="example" src={`http://localhost:8080/${produto.src}`} />}
+                                cover={<img alt="example" src={`${baseurl}/${produto.src}`} />}
                                 actions={[
-                                    <ShoppingCartOutlined onClick={() => addCart(produto._id)} />,
-                                    <HeartFilled onClick={() => removeFavorite(produto._id)} style={{ color: '#a4003d' }} />
+                                    <ShoppingCartOutlined onClick={() => addCart(produto._id)} style={{ fontSize: '18px' }} />,
+                                    <HeartFilled onClick={() => removeFavorite(produto._id)} style={{ color: '#a4003d', fontSize: '18px' }} />
                                 ]}
                                 key={index}
                             >

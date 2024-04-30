@@ -1,6 +1,7 @@
 import axios from 'axios';
+import baseurl from '../components/baseurl/BaseUrl';
 const api = axios.create(
-    { baseURL: 'https://vivaprateadastore.onrender.com' }
+    { baseURL: baseurl }
 )
 
 

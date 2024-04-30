@@ -9,7 +9,7 @@ import 'swiper/css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { animateScroll as scroll } from 'react-scroll';
-
+import baseurl from '../baseurl/BaseUrl';
 const { Meta } = Card;
 
 export function SliderProduct() {
@@ -118,14 +118,13 @@ export function SliderProduct() {
                 {products.map((produto, index) => (
                     <SwiperSlide key={index}>
                         <Card
-                            hoverable
                             className={styles.card1}
-                            cover={<img src={`http://localhost:8080/${produto.src}`} alt="imagem do produto" />}
+                            cover={<img src={`${baseurl}/${produto.src}`} alt="imagem do produto" />}
                             actions={[
-                                <ShoppingCartOutlined onClick={() => addCart(produto._id)} />,
+                                <ShoppingCartOutlined onClick={() => addCart(produto._id)} style={{ fontSize: '18px' }} />,
                                 favorite.some(favorite => favorite._id === produto._id) ?
-                                    <HeartFilled onClick={() => addFavorite(produto._id)} style={{ color: '#a4003d' }} /> :
-                                    <HeartOutlined onClick={() => addFavorite(produto._id)} />
+                                    <HeartFilled onClick={() => addFavorite(produto._id)} style={{ color: '#a4003d', fontSize: '18px' }} /> :
+                                    <HeartOutlined onClick={() => addFavorite(produto._id)} style={{ fontSize: '18px' }} />
                             ]}
                         >
                             <Meta

@@ -8,10 +8,13 @@
   align-items: center;
 }
 
-.imagem_principal img {
-  width: 85%;
+.imagem_principal {
   display: flex;
   justify-content: center;
+}
+
+.imagem_principal img {
+  width: 85%;
   cursor: pointer;
 }
 
