@@ -40,7 +40,7 @@ const DeleteProductCard = () => {
                 products.map((produto, index) => (
                     <Card
                         className={styles.card1}
-                        cover={<img alt="example" src={`${baseurl}/${produto.src}`} />}
+                        cover={<img alt="imagem_do_produto" src={`http://localhost:8080/${produto.src}`} />}
                         actions={[
                             <DeleteOutlined onClick={() => handleDelete(produto._id)}
                                 style={{ fontSize: '18px' }}
