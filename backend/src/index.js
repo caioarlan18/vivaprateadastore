@@ -16,5 +16,5 @@ app.use('/uploads', express.static(path.resolve("uploads")));
 
 
 app.listen(port, () => {
-    console.log('Servidor funcionando');
+    console.log('Servidor funcionando!');
 })
