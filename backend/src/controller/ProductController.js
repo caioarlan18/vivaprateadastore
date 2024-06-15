@@ -65,7 +65,7 @@ module.exports = {
             if (product.src) {
                 fs.unlinkSync(product.src);
             }
-            product.src = file.path;
+            product.src = file.filename;
         }
 
         await product.save();
