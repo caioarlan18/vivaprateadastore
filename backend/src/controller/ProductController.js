@@ -26,7 +26,7 @@ module.exports = {
         }
         try {
             const product = await productModel.create({
-                src: file.path,
+                src: `uploads/${file.filename}`,
                 title,
                 price,
                 description,
