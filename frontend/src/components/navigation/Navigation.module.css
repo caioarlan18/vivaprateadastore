@@ -1,0 +1,13 @@
+.navigation {
+    background-color: #0d4389;
+    width: 100%;
+    padding: 50px 0px;
+}
+
+.navigation h1 {
+    color: white;
+    text-align: center;
+    font-family: Zen Antique;
+    font-weight: 700;
+    font-size: 25px;
+}

@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import { FaBars, FaAngleDown, FaAngleRight, FaUser, FaShoppingCart, FaSearch, FaHeart } from 'react-icons/fa';
+import { FaBars, FaAngleDown, FaUser, FaShoppingCart, FaHeart } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logotipo from '../images/logosite.jpg';

@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import baseurl from '../baseurl/BaseUrl';
 import { ShoppingCartOutlined, HeartFilled } from '@ant-design/icons';
 import { ToastContainer, toast } from "react-toastify";
+import { Navigation } from "../navigation/Navigation";
 const { Meta } = Card;
 
 export function FavoriteProducts() {
@@ -70,6 +71,7 @@ export function FavoriteProducts() {
     return (
         <div>
             <Header />
+            <Navigation name={"Lista de favoritos"} />
             {!isAuth &&
                 <div className={styles.unlog}>
                     <h1>Você precisa estar logado para acessar essa página</h1>
@@ -80,6 +82,7 @@ export function FavoriteProducts() {
             {isAuth ? (
                 products.length ? (
                     <div className={styles.card}>
+
                         <ToastContainer />
                         {products.map((produto, index) => (
                             <Card
