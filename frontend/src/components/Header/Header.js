@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import { FaBars, FaAngleDown, FaUser, FaShoppingCart, FaHeart } from 'react-icons/fa';
+import { FaBars, FaAngleDown, FaUser, FaShoppingCart, FaHeart, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logotipo from '../images/logosite.jpg';
@@ -9,7 +9,7 @@ export function Header() {
     const [logged, setLogged] = useState(false);
     function menuOpen() {
         const menu = document.querySelector(`.${styles.menuHamburguer}`);
-        menu.classList.toggle(styles.active);
+        menu.classList.add(styles.active);
     }
     function handleOpenCat() {
         setOpenCat(!openCat);
@@ -35,7 +35,10 @@ export function Header() {
         setCountCart(cartItems.length);
     }, [])
 
-
+    function close() {
+        const menu = document.querySelector(`.${styles.menuHamburguer}`);
+        menu.classList.remove(styles.active);
+    }
     return (
         <div>
 
@@ -92,12 +95,22 @@ export function Header() {
             {/* menu hamburguer */}
             <div className={styles.menuHamburguer}>
                 <div className={styles.log}>
-                    <Link to={'/login'}><FaUser />{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}</Link>
+                    <div className={styles.log1}>
+                        <h1>MENU</h1>
+                        <FaTimes onClick={close} />
+                    </div>
+                    <div className={styles.log2}>
+                        <Link to={'/'} onClick={close}>Início</Link>
+                        <div></div>
+                        <Link to={'/login'}><FaUser />{logged ? <span>Olá {userdata.name}</span> : <span>MINHA CONTA</span>}</Link>
+                    </div>
+
+
                 </div>
 
                 <div className={styles.nav2} >
                     {categories.map((cat, index) => (
-                        <Link to={`/category/${cat}`} key={index}>{cat}</Link>
+                        <Link to={`/category/${cat}`} key={index}><span>{cat}</span></Link>
                     ))}
                 </div>
             </div>

@@ -10,12 +10,15 @@
 
 .imagem_principal {
   display: flex;
-  justify-content: center;
+  width: 85%;
+
 }
 
 .imagem_principal img {
   width: 85%;
   cursor: pointer;
+  height: 500px;
+  object-fit: cover;
 }
 
 .compra1 {
