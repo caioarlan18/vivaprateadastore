@@ -37,7 +37,7 @@
 }
 
 .card1 h2 {
-    font-size: 17px;
+    font-size: 12px;
     font-family: Zen Antique;
     font-weight: 400;
     color: #0d4389;
@@ -80,8 +80,8 @@
 }
 
 .card1 {
-    width: 40%;
-    margin: 10px 10px;
+    width: 45%;
+    margin: 10px 5px;
 }
 
 .empty {

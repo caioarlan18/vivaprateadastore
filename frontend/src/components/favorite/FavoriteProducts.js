@@ -83,7 +83,6 @@ export function FavoriteProducts() {
                         <ToastContainer />
                         {products.map((produto, index) => (
                             <Card
-                                hoverable
                                 className={styles.card1}
                                 cover={<img alt="example" src={`${baseurl}/${produto.src}`} />}
                                 actions={[
