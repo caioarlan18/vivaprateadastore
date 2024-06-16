@@ -79,7 +79,7 @@ export function ProductPage() {
 
                 </div>
                 <div className={styles.compra3}>
-                    <h2>R${product.price}</h2>
+                    <h2>R$ {product.price}</h2>
                 </div>
                 {varArray.length > 0 &&
                     <div className={styles.compra4}>
@@ -158,7 +158,7 @@ export function ProductPage() {
 
                         </div>
                         <div className={styles.compra3}>
-                            <h2>R${product.price}</h2>
+                            <h2>R$ {product.price}</h2>
                         </div>
 
                         {varArray.length > 0 &&
