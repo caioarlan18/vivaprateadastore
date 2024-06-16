@@ -26,7 +26,7 @@ module.exports = {
         }
         try {
             const product = await productModel.create({
-                src: `uploads/${file.filename}`,
+                src: file.path,
                 title,
                 price,
                 description,
@@ -65,7 +65,7 @@ module.exports = {
             if (product.src) {
                 fs.unlinkSync(product.src);
             }
-            product.src = `uploads/${file.filename}`;
+            product.src = file.path;
         }
 
         await product.save();
