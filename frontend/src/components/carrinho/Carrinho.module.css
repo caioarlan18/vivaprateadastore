@@ -123,6 +123,8 @@
 
 .carrinho3 img {
     width: 100px;
+    height: 100px;
+    object-fit: cover;
     display: flex;
     border-radius: 5px;
 }

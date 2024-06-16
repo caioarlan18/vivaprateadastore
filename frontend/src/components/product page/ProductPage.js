@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { animateScroll as scroll } from 'react-scroll';
 import { ToastContainer, toast } from "react-toastify";
 import baseurl from '../baseurl/BaseUrl';
+import { CardProduct } from "../cardproduct/CardProduct";
 export function ProductPage() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -55,6 +56,14 @@ export function ProductPage() {
             setCartItems(JSON.parse(savedCartItems));
         }
     }, []);
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        async function loadProduct() {
+            const response = await api.get("/product/all");
+            setProducts(response.data);
+        }
+        loadProduct();
+    }, [])
     return (
         <div>
             <Header />
@@ -108,6 +117,24 @@ export function ProductPage() {
                     <p>
                         {product.description}
                     </p>
+                </div>
+                <div className={styles.recomendados}>
+                    <h1>você também vai gostar</h1>
+                </div>
+                <div className={styles.card}>
+                    {products
+                        .filter(obj => obj.category === product.category && obj.title !== product.title)
+                        .slice(0, 2)
+                        .map((objfilt, index) => (
+                            <CardProduct
+                                title={objfilt.title}
+                                src={objfilt.src}
+                                productId={objfilt._id}
+                                price={objfilt.price}
+                                category={objfilt.category}
+                                key={index}
+                            />
+                        ))}
                 </div>
             </div>
 
@@ -172,6 +199,24 @@ export function ProductPage() {
                     <p>
                         {product.description}
                     </p>
+                </div>
+                <div className={styles.recomendados}>
+                    <h1>você também vai gostar</h1>
+                </div>
+                <div className={styles.card}>
+                    {products
+                        .filter(obj => obj.category === product.category && obj.title !== product.title)
+                        .slice(0, 2)
+                        .map((objfilt, index) => (
+                            <CardProduct
+                                title={objfilt.title}
+                                src={objfilt.src}
+                                productId={objfilt._id}
+                                price={objfilt.price}
+                                category={objfilt.category}
+                                key={index}
+                            />
+                        ))}
                 </div>
             </div>
 

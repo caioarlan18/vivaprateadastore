@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import api from "../../../axiosConfig/axios";
 import { animateScroll as scroll } from "react-scroll";
 import categories from '../../categoryArray/CategoryArr';
-
 export function AddProduct() {
 
     const [imageSrc, setImageSrc] = useState(null);

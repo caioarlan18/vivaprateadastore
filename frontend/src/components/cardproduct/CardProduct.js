@@ -6,6 +6,8 @@ import api from '../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import baseurl from '../baseurl/BaseUrl';
+import { animateScroll as scroll } from "react-scroll";
+
 const { Meta } = Card;
 
 export function CardProduct({ src, productId, price, title, category, index }) {
@@ -14,6 +16,9 @@ export function CardProduct({ src, productId, price, title, category, index }) {
 
     function comprar(id) {
         navigate(`/productpage/${id}`);
+        scroll.scrollToTop({ duration: 0 });
+
+
     }
 
     const token = localStorage.getItem("token");

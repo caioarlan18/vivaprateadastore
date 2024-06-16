@@ -18,6 +18,7 @@
     font-family: Zen Antique;
     font-weight: 500;
     margin-top: 10px;
+    text-align: center;
 }
 
 .popular1 {
@@ -33,7 +34,7 @@
     width: 40%;
     margin: 20px 0px;
     background-color: white;
-    padding: 20px 0px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,9 +52,11 @@ a.popular2 {
     color: #666666;
     font-family: Zen Antique;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13px;
     text-decoration: none;
     text-transform: lowercase;
+    text-align: center;
+    width: 80%;
 }
 
 @media screen and (min-width: 992px) and (max-width: 4000px) {

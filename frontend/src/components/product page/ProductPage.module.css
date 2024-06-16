@@ -1,7 +1,6 @@
 .compra {
   margin-top: 50px;
   width: 100%;
-  margin-bottom: 100px;
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
@@ -10,20 +9,21 @@
 
 .imagem_principal {
   display: flex;
-  width: 85%;
+  width: 100%;
+  justify-content: center;
 
 }
 
 .imagem_principal img {
-  width: 85%;
+  width: 95%;
   cursor: pointer;
   height: 500px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .compra1 {
   display: flex;
-  width: 85%;
+  width: 90%;
 }
 
 .compra1 img {
@@ -34,35 +34,35 @@
 }
 
 .compra2 {
-  width: 85%;
+  width: 95%;
 }
 
 .compra2 h1 {
   font-family: Zen Antique;
   font-weight: 500;
-  font-size: 23px;
+  font-size: 18px;
   margin: 30px 0px;
   color: #0d4389;
-  text-transform: capitalize;
+  text-transform: lowercase;
 }
 
 .compra2 a {
   color: #1b3768;
-  font-size: 15px;
+  font-size: 12px;
   font-family: Zen Antique;
   text-decoration: underline;
   cursor: pointer;
 }
 
 .compra3 {
-  width: 85%;
+  width: 95%;
   align-items: center;
   margin-top: 30px;
 }
 
 .compra3 h2 {
   font-family: Zen Antique;
-  font-size: 30px;
+  font-size: 20px;
   color: #0d4389;
   margin: 0;
   font-weight: 700;
@@ -92,7 +92,7 @@
 }
 
 .compra4 {
-  width: 85%;
+  width: 95%;
   margin-top: 30px;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .compra5 {
-  width: 85%;
+  width: 95%;
   margin-top: 30px;
 }
 
@@ -122,6 +122,7 @@
   padding: 10px 20px;
   background-color: #0d4389;
   color: white;
+  font-size: 13px;
   font-family: Zen Antique;
   text-decoration: none;
   border-radius: 30px;
@@ -150,7 +151,7 @@ button.compra51 {
 }
 
 .compra6 {
-  width: 85%;
+  width: 95%;
   margin-top: 50px;
 }
 
@@ -170,17 +171,18 @@ button.compra51 {
 }
 
 .compra7 {
-  width: 85%;
+  width: 95%;
 }
 
 .compra7 img {
-  width: 100%;
+  width: 70%;
   margin-top: 50px;
 }
 
 .compra8 {
-  width: 85%;
+  width: 95%;
   margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .compra8 h1 {
@@ -210,24 +212,72 @@ button.compra51 {
   display: none;
 }
 
+.recomendados {
+  border-top: 1px #777777ff dashed;
+  width: 100%;
+  background-color: #faf8f7;
+  padding: 30px 0px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #faf8f7;
+  width: 100%;
+  padding: 0px 0px 50px;
+}
+
+.recomendados h1 {
+  width: 100%;
+
+  font-size: 22px;
+  font-family: Zen Antique;
+  text-align: center;
+  color: #0d4389;
+  font-weight: 500;
+}
+
 @media screen and (min-width: 992px) and (max-width: 4000px) {
   .compra {
     display: none;
   }
 
   .desktop1 {
-    width: 50%;
+    width: 75%;
+  }
+
+  .compra2 h1 {
+    font-size: 26px;
+  }
+
+  .compra3 h2 {
+    font-size: 26px;
   }
 
   .compra_desktop {
     display: block;
-    width: 70%;
-    margin: 0 auto;
+    width: 100%;
     margin-top: 50px;
-    margin-bottom: 30px;
+  }
+
+
+  .compra8 {
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+  .compra5 {
+    width: 70%;
   }
 
   .desktop {
     display: flex;
+    width: 100%;
+  }
+
+  .recomendados h1 {
+    font-size: 28px;
   }
 }
