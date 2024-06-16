@@ -56,7 +56,7 @@ export function Header() {
                 </Link>
                 <div className={styles.headerMobile1} >
                     <Link to={"/favorites"}>
-                        <FaHeart />
+                        <FaHeart style={{ position: "relative", right: "10px" }} />
                     </Link>
                     <Link to={"/carrinho"}>
                         <FaShoppingCart />

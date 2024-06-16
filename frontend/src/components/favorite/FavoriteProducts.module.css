@@ -31,9 +31,11 @@
 .card1 h1 {
     color: #0d4389;
     font-family: Zen Antique;
-    font-size: 23px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
     text-transform: capitalize;
+    text-transform: lowercase;
+    text-align: center;
 }
 
 .card1 h2 {
@@ -45,10 +47,11 @@
 }
 
 .card1 p {
-    color: #0d4389;
-    font-size: 21px;
+    color: #000000;
+    font-size: 16px;
     font-family: Zen Antique;
     margin-top: 15px;
+    text-align: center;
     font-weight: 500;
 }
 

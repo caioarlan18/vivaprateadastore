@@ -79,7 +79,6 @@ export function CardProduct({ src, productId, price, title, category, index }) {
 
             <Meta
                 title={<h1>{title}</h1>}
-                description={<h2>{category}</h2>}
             />
             <p>R${price}</p>
             <button onClick={() => comprar(productId)}>Comprar</button>

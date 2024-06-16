@@ -107,7 +107,10 @@ export function SliderProduct() {
     return (
         <div className={styles.sliderProduct}>
             <ToastContainer />
-            <h1 className={styles.sliderProductTitle}>- Peças disponíveis</h1>
+            <div className={styles.sliderProductTitle}>
+                <h1>nossas peças</h1>
+                <p>confira todas nossas peças disponíveis</p>
+            </div>
             <Swiper spaceBetween={30} slidesPerView={2} className={styles.card}
                 breakpoints={{
                     992: {
@@ -129,7 +132,7 @@ export function SliderProduct() {
                         >
                             <Meta
                                 title={<h1>{produto.title}</h1>}
-                                description={<h2>{produto.category}</h2>}
+
                             />
                             <p>R${produto.price}</p>
                             <button onClick={() => comprar(produto._id)}>Comprar</button>

@@ -9,7 +9,8 @@ export function Popular() {
     return (
         <div className={styles.popular}>
             <div className={styles.popularTitle}>
-                <h1>- Popular agora</h1>
+                <h1>populares</h1>
+                <p>veja nossas categorias mais populares no momento</p>
             </div>
             <div className={styles.popular1}>
                 {categories.map((cat, index) => (

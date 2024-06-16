@@ -96,7 +96,7 @@ export function FavoriteProducts() {
                             >
                                 <Meta
                                     title={<h1>{produto.title}</h1>}
-                                    description={<h2>{produto.category}</h2>}
+
                                 />
                                 <p>R${produto.price}</p>
                                 <button onClick={() => comprar(produto._id)}>Comprar</button>

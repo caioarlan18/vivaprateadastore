@@ -6,9 +6,10 @@
 .card1 h1 {
     color: #0d4389;
     font-family: Zen Antique;
-    font-size: 23px;
-    font-weight: 600;
-    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: lowercase;
+    text-align: center;
 }
 
 .card1 img {
@@ -17,19 +18,13 @@
     height: 200px;
 }
 
-.card1 h2 {
-    font-size: 12px;
-    font-family: Zen Antique;
-    font-weight: 400;
-    color: #0d4389;
-    text-transform: capitalize;
-}
 
 .card1 p {
-    color: #0d4389;
-    font-size: 21px;
+    color: #000000;
+    font-size: 16px;
     font-family: Zen Antique;
     margin-top: 15px;
+    text-align: center;
     font-weight: 500;
 }
 
