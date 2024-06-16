@@ -16,6 +16,7 @@ export function SliderImage() {
                     modules={[Navigation, Pagination]}
                     navigation
                     pagination
+
                 >
 
                     <SwiperSlide >

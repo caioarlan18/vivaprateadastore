@@ -43,7 +43,13 @@ export function Header() {
         <div>
 
             {/* header mobile */}
+            <div className={styles.premenu}>
+                <h1>Texto para botar aqui ex: frete grátis para todo brasil</h1>
+            </div>
             <div className={styles.headerMobile}>
+                <div className={styles.headerMobile1} >
+                    <FaBars onClick={menuOpen} />
+                </div>
                 <Link className={styles.headerMobile1} to={"/"}>
                     <img src={logotipo} alt="logo do site" />
                     <h1>VIVA <br />Prateada</h1>
@@ -56,7 +62,7 @@ export function Header() {
                         <FaShoppingCart />
                         <span>{countCart}</span>
                     </Link>
-                    <FaBars onClick={menuOpen} />
+
                 </div>
             </div>
 
@@ -84,7 +90,7 @@ export function Header() {
                 {openCat && <div className={styles.menubottom1}>
                     <div className={styles.nav2d} >
                         {categories.map((cat, index) => (
-                            <Link to={`/category/${cat}`} key={index}>{cat}</Link>
+                            <Link to={`/category/${cat}`} key={index} onClick={() => setOpenCat(false)}>{cat}</Link>
                         ))}
                     </div>
                 </div>}

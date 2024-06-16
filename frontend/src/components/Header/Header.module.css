@@ -7,19 +7,38 @@ svg {
     display: none;
 }
 
-.headerMobile {
-    height: 120px;
+.premenu {
+    background-color: #0D4389;
+    width: 100%;
+    height: 30px;
     display: flex;
-    background-color: #F3F3F3;
+    justify-content: center;
+    align-items: center;
+}
+
+.premenu h1 {
+    color: white;
+    font-family: Zen Antique;
+    font-size: 11px;
+    font-weight: 500;
+
+}
+
+.headerMobile {
+    height: 80px;
+    display: flex;
+    background-color: white;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    border-bottom: 1px solid #ddddddff;
 }
 
 .headerMobile1 {
     display: flex;
     align-items: center;
     margin: 0px 20px;
+    justify-content: center;
     text-decoration: none;
 
 }
@@ -198,12 +217,20 @@ svg {
         display: block;
     }
 
+    .premenu {
+        height: 40px;
+    }
+
+    .premenu h1 {
+        font-size: 15px;
+    }
+
     .headerDesktop {
         display: flex;
-        background-color: #F3F3F3;
+        background-color: white;
         align-items: center;
         justify-content: space-around;
-        height: 120px;
+        height: 80px;
     }
 
     .headerDesktop1 {
@@ -224,7 +251,7 @@ svg {
     .headerDesktop1 h1 {
         color: #0D4389;
         cursor: pointer;
-        font-size: 40px;
+        font-size: 25px;
         font-family: Zen Antique;
         line-height: 1;
         font-weight: 400;
@@ -232,8 +259,8 @@ svg {
     }
 
     .headerDesktop1 img {
-        width: 30%;
-        height: 30%;
+        width: 25%;
+        height: 25%;
         border-radius: 10px;
         cursor: pointer;
     }
@@ -248,20 +275,11 @@ svg {
         color: #0D4389;
     }
 
-    .lupa {
-        border: 2px solid #0D4389;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        padding: 5px;
-        color: #0D4389;
-
-    }
-
 
     .drop span {
         color: #0D4389;
         cursor: pointer;
-        font-size: 25px;
+        font-size: 23px;
         font-family: Zen Antique;
         font-weight: 600;
         margin-left: 60px;
