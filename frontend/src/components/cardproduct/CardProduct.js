@@ -12,7 +12,7 @@ const { Meta } = Card;
 
 export function CardProduct({ src, productId, price, title, category, index }) {
     const navigate = useNavigate();
-    const userId = localStorage.getItem("id");
+
 
     function comprar(id) {
         navigate(`/productpage/${id}`);
@@ -21,6 +21,7 @@ export function CardProduct({ src, productId, price, title, category, index }) {
 
     }
 
+    const userId = localStorage.getItem("id");
     const token = localStorage.getItem("token");
     const [favorite, setFavorite] = useState([]);
     async function addFavorite(id) {
@@ -67,27 +68,55 @@ export function CardProduct({ src, productId, price, title, category, index }) {
     }, [addFavorite])
 
 
+    const [cartItems, setCartItems] = useState([]);
+
+    async function addCart(id) {
+        try {
+            const response = await api.get(`/product/read/${id}`);
+            if (!response.data.variations) {
+                const updatedCartItems = [...cartItems, response.data];
+                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+                toast.success("Adicionado ao carrinho com sucesso")
+
+            } else {
+                toast.error("Esse produto possui variações, entre no produto e escolha, para depois adicionar ao carrinho")
+            }
+
+        } catch (err) {
+            toast.error(err.response.data.msg)
+        }
+    }
+    useEffect(() => {
+        const savedCartItems = localStorage.getItem('cartItems');
+        if (savedCartItems) {
+            setCartItems(JSON.parse(savedCartItems));
+        }
+    }, []);
     return (
-
-        <Card
-            className={styles.card1}
-            cover={<img src={`${baseurl}/${src}`} alt="imagem do produto" />}
-            actions={[
-                <ShoppingCartOutlined style={{ fontSize: '18px' }} />,
-                favorite.some(favorite => favorite._id === productId) ?
-                    <HeartFilled onClick={() => addFavorite(productId)} style={{ color: '#a4003d', fontSize: '18px' }} /> :
-                    <HeartOutlined onClick={() => addFavorite(productId)} style={{ fontSize: '18px' }} />
-            ]}
-            key={index}
-        >
+        <>
             <ToastContainer />
+            <Card
+                className={styles.card1}
+                cover={<img src={`${baseurl}/${src}`} alt="imagem do produto" />}
+                actions={[
+                    <ShoppingCartOutlined onClick={() => addCart(productId)} style={{ fontSize: '18px' }} />,
+                    favorite.some(favorite => favorite._id === productId) ?
+                        <HeartFilled onClick={() => addFavorite(productId)} style={{ color: '#a4003d', fontSize: '18px' }} /> :
+                        <HeartOutlined onClick={() => addFavorite(productId)} style={{ fontSize: '18px' }} />
+                ]}
+                key={index}
+            >
 
-            <Meta
-                title={<h1>{title}</h1>}
-            />
-            <p>R${price}</p>
-            <button onClick={() => comprar(productId)}>Comprar</button>
-        </Card>
+
+                <Meta
+                    title={<h1>{title}</h1>}
+                />
+                <p>R${price}</p>
+                <button onClick={() => comprar(productId)}>Comprar</button>
+            </Card>
+        </>
+
+
 
     )
 }

@@ -27,12 +27,9 @@ export function Header() {
 
     //contador de itens carrinho
     const [cartItems, setCartItems] = useState([])
-    const [countCart, setCountCart] = useState(0);
     useEffect(() => {
-
         const cartItemsSaved = JSON.parse(localStorage.getItem("cartItems"));
         setCartItems(cartItemsSaved);
-        setCountCart(cartItems.length);
     }, [])
 
     function close() {
@@ -60,7 +57,6 @@ export function Header() {
                     </Link>
                     <Link to={"/carrinho"}>
                         <FaShoppingCart />
-                        <span>{countCart}</span>
                     </Link>
 
                 </div>
@@ -116,7 +112,7 @@ export function Header() {
 
                 <div className={styles.nav2} >
                     {categories.map((cat, index) => (
-                        <Link to={`/category/${cat}`} key={index}><span>{cat}</span></Link>
+                        <Link to={`/category/${cat}`} key={index} onClick={close}><span>{cat}</span></Link>
                     ))}
                 </div>
             </div>

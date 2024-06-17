@@ -74,7 +74,7 @@ export function Carrinho() {
                             </div>
                             <div className={styles.carrinho3}>
                                 <h1>{item.title}</h1>
-                                <h3>R${item.price}</h3>
+                                <h3>R$ {item.price}</h3>
                                 <h4>tipo: <span>{item.variations}</span></h4>
                             </div>
                         </div>

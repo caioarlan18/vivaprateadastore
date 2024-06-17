@@ -206,7 +206,7 @@ export function ProductPage() {
                 <div className={styles.card}>
                     {products
                         .filter(obj => obj.category === product.category && obj.title !== product.title)
-                        .slice(0, 2)
+                        .slice(0, 5)
                         .map((objfilt, index) => (
                             <CardProduct
                                 title={objfilt.title}
