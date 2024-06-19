@@ -6,6 +6,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Header } from '../../Header/Header';
 import { Footer } from '../../Footer/Footer';
 import categories from '../../categoryArray/CategoryArr';
+import { ref, deleteObject, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "../../../firebaseConfig/firebase";
 
 export function UpdateProduct() {
     const { id } = useParams();
@@ -19,18 +21,22 @@ export function UpdateProduct() {
     const [category, setCategory] = useState('');
     const [variations, setVariations] = useState('');
     const fileInputRef = useRef(null);
+    const [imageUrl, setImageUrl] = useState("");
+    const [newFile, setNewFile] = useState(null);
+
     useEffect(() => {
         async function fetchProduct() {
             try {
                 const response = await api.get(`/product/read/${id}`);
-                const { src, title, price, description, category, variations } = response.data;
+                const { imageUrl, title, price, description, category, variations } = response.data;
                 setProduct(response.data);
-                setImageSrc(src);
                 setTitle(title);
                 setPrice(price);
                 setDescription(description);
                 setCategory(category);
                 setVariations(variations);
+                setImageUrl(imageUrl);
+                setImageSrc(imageUrl);
             } catch (err) {
                 toast.error(err.response.data.msg);
             }
@@ -41,6 +47,7 @@ export function UpdateProduct() {
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
+            setNewFile(file);
             const reader = new FileReader();
             reader.onload = (e) => {
                 setImageSrc(e.target.result);
@@ -51,30 +58,71 @@ export function UpdateProduct() {
 
     const handleRemoveImage = () => {
         setImageSrc('');
+        setNewFile(null);
         fileInputRef.current.value = '';
+    };
+
+    const extractFilePathFromUrl = (url) => {
+        const pathStartIndex = url.indexOf("/o/") + 3;
+        const pathEndIndex = url.indexOf("?");
+        const filePath = url.substring(pathStartIndex, pathEndIndex).replace(/%2F/g, "/");
+        return decodeURIComponent(filePath);
+    };
+
+    const deleteImageByUrl = async (link) => {
+        try {
+            const filePath = extractFilePathFromUrl(link);
+            const fileRef = ref(storage, filePath);
+            await deleteObject(fileRef);
+        } catch (error) {
+            toast.error("Erro ao excluir imagem: " + error.message);
+        }
+    };
+
+    const uploadImage = async (file, filePath) => {
+        return new Promise((resolve, reject) => {
+            const storageRef = ref(storage, filePath);
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on(
+                'state_changed',
+                null,
+                (error) => {
+                    toast.error("Erro ao fazer upload da imagem: " + error.message);
+                    reject(error);
+                },
+                async () => {
+                    const url = await getDownloadURL(uploadTask.snapshot.ref);
+                    toast.success("Imagem enviada com sucesso!");
+                    resolve(url);
+                }
+            );
+        });
     };
 
     async function handleSubmit() {
         const userId = localStorage.getItem("id");
         const productId = id;
-        const data = new FormData();
-        data.append('userId', userId);
-        data.append('title', title);
-        data.append('price', price);
-        data.append('description', description);
-        data.append('category', category);
-        data.append('variations', variations);
-        data.append('productId', productId)
-        if (fileInputRef.current.files[0]) {
-            data.append('file', fileInputRef.current.files[0]);
-        }
 
         try {
-            const response = await api.put("/product/update", data, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+            let updatedImageUrl = imageUrl;
+            if (newFile) {
+                await deleteImageByUrl(imageUrl);
+                const filePath = `images/${newFile.name}`;
+                updatedImageUrl = await uploadImage(newFile, filePath);
+            }
+
+            const response = await api.put("/product/update", {
+                title,
+                price,
+                description,
+                category,
+                variations,
+                imageUrl: updatedImageUrl,
+                productId,
+                userId
             });
+
             navigate("/painel");
             toast.success(response.data.msg);
         } catch (err) {

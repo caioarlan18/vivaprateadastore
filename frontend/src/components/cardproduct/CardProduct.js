@@ -5,12 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import baseurl from '../baseurl/BaseUrl';
 import { animateScroll as scroll } from "react-scroll";
 
 const { Meta } = Card;
 
-export function CardProduct({ src, productId, price, title, category, index }) {
+export function CardProduct({ imageUrl, productId, price, title, category, index }) {
     const navigate = useNavigate();
 
 
@@ -97,7 +96,7 @@ export function CardProduct({ src, productId, price, title, category, index }) {
             <ToastContainer />
             <Card
                 className={styles.card1}
-                cover={<img src={`${baseurl}/${src}`} alt="imagem do produto" />}
+                cover={<img src={imageUrl} alt="imagem do produto" />}
                 actions={[
                     <ShoppingCartOutlined onClick={() => addCart(productId)} style={{ fontSize: '18px' }} />,
                     favorite.some(favorite => favorite._id === productId) ?

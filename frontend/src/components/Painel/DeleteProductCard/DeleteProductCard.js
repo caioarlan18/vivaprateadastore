@@ -6,15 +6,20 @@ import api from '../../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import baseurl from '../../baseurl/BaseUrl';
+import { ref, deleteObject } from "firebase/storage";
+import { storage } from "../../../firebaseConfig/firebase";
 const { Meta } = Card;
 
 const DeleteProductCard = () => {
     const [products, setProducts] = useState([])
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     async function handleDelete(id) {
         try {
             const userId = localStorage.getItem("id");
+            const oneProduct = await api.get(`/product/read/${id}`);
+            const storageRef = ref(storage, oneProduct.data.imageUrl);
+            await deleteObject(storageRef);
             const response = await api.post(`/product/delete/${id}`, {
                 userId
             });
@@ -40,7 +45,7 @@ const DeleteProductCard = () => {
                 products.map((produto, index) => (
                     <Card
                         className={styles.card1}
-                        cover={<img alt="imagem_do_produto" src={`${baseurl}/${produto.src}`} />}
+                        cover={<img alt="imagem_do_produto" src={produto.imageUrl} />}
                         actions={[
                             <DeleteOutlined onClick={() => handleDelete(produto._id)}
                                 style={{ fontSize: '18px' }}

@@ -1,5 +1,4 @@
 const productModel = require("../models/ProductModel");
-const fs = require("fs");
 const userModel = require('../models/UserModel');
 module.exports = {
 
@@ -19,14 +18,13 @@ module.exports = {
 
 
     async create(req, res) {
-        const { title, price, description, category, variations } = req.body;
-        const file = req.file;
-        if (!title || !price || !description || !category || !file) {
+        const { title, price, description, category, variations, imageUrl } = req.body;
+        if (!title || !price || !description || !category || !imageUrl) {
             return res.status(500).json({ msg: "Faltando dados" });
         }
         try {
             const product = await productModel.create({
-                src: file.path,
+                imageUrl,
                 title,
                 price,
                 description,
@@ -42,8 +40,7 @@ module.exports = {
 
     async update(req, res) {
 
-        const { title, price, description, category, variations, productId } = req.body;
-        const file = req.file;
+        const { title, price, description, category, variations, productId, imageUrl } = req.body;
 
 
         if (!title || !price || !description || !category) {
@@ -60,13 +57,8 @@ module.exports = {
         product.description = description;
         product.category = category;
         product.variations = variations;
+        product.imageUrl = imageUrl;
 
-        if (file) {
-            if (product.src) {
-                fs.unlinkSync(product.src);
-            }
-            product.src = file.path;
-        }
 
         await product.save();
         return res.status(200).json({ msg: "Produto atualizado com sucesso", product });
@@ -80,7 +72,6 @@ module.exports = {
             return res.status(400).json({ msg: "Esse produto não existe" });
         }
         try {
-            fs.unlinkSync(product.src);
             await productModel.deleteOne(product);
             return res.status(200).json({ msg: "Produto excluído com sucesso" });
         } catch (error) {

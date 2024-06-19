@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import { Card } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import baseurl from '../baseurl/BaseUrl';
 import { ShoppingCartOutlined, HeartFilled } from '@ant-design/icons';
 import { ToastContainer, toast } from "react-toastify";
 import { Navigation } from "../navigation/Navigation";
@@ -87,7 +86,7 @@ export function FavoriteProducts() {
                         {products.map((produto, index) => (
                             <Card
                                 className={styles.card1}
-                                cover={<img alt="example" src={`${baseurl}/${produto.src}`} />}
+                                cover={<img alt="example" src={produto.imageUrl} />}
                                 actions={[
                                     <ShoppingCartOutlined onClick={() => addCart(produto._id)} style={{ fontSize: '18px' }} />,
                                     <HeartFilled onClick={() => removeFavorite(produto._id)} style={{ color: '#a4003d', fontSize: '18px' }} />

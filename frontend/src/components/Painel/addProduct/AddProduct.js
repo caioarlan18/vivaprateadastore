@@ -5,8 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import api from "../../../axiosConfig/axios";
 import { animateScroll as scroll } from "react-scroll";
 import categories from '../../categoryArray/CategoryArr';
-export function AddProduct() {
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { storage } from "../../../firebaseConfig/firebase";
 
+export function AddProduct() {
     const [imageSrc, setImageSrc] = useState(null);
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
@@ -14,9 +16,12 @@ export function AddProduct() {
     const [category, setCategory] = useState(categories[0]);
     const [variations, setVariations] = useState("");
     const fileInputRef = useRef(null);
+    const [fileName, setFileName] = useState(null);
+
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
+            setFileName(file);
             const reader = new FileReader();
             reader.onload = (e) => {
                 setImageSrc(e.target.result);
@@ -27,56 +32,60 @@ export function AddProduct() {
 
     const handleRemoveImage = () => {
         setImageSrc(null);
+        setFileName(null);
         fileInputRef.current.value = "";
     };
 
-    function handleTitle(e) {
-        setTitle(e.target.value);
-    }
-    function handlePrice(e) {
-        setPrice(e.target.value);
-    }
-    function handleDescription(e) {
-        setDescription(e.target.value);
-    }
+    const handleInputChange = (setter) => (e) => {
+        setter(e.target.value);
+    };
 
-    function handleCategory(e) {
-        setCategory(e.target.value);
-    }
-    function handleVariations(e) {
-        setVariations(e.target.value);
-    }
-
-    async function handleSubmit() {
+    const handleSubmit = async () => {
         const userId = localStorage.getItem("id");
-        const data = new FormData();
-        data.append("title", title);
-        data.append("price", price);
-        data.append("description", description);
-        data.append("category", category);
-        data.append("variations", variations);
-        data.append("userId", userId);
-        data.append("file", fileInputRef.current.files[0]);
+        if (!fileName) {
+            toast.error("Por favor, selecione uma imagem.");
+            return;
+        }
 
         try {
-            const response = await api.post("/product/create", data, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
+            const storageRef = ref(storage, `images/${fileName.name}`);
+            const uploadTask = uploadBytesResumable(storageRef, fileName);
+
+            uploadTask.on(
+                "state_changed",
+                null,
+                (error) => {
+                    toast.error("Erro ao fazer upload da imagem: " + error.message);
                 },
-            });
-            setTitle("");
-            setPrice("");
-            setDescription("");
-            setCategory("");
-            setVariations("");
-            setImageSrc("");
-            fileInputRef.current.value = "";
-            toast.success(response.data.msg);
-            scroll.scrollToTop({ duration: 0 });
+                async () => {
+                    const url = await getDownloadURL(uploadTask.snapshot.ref);
+
+                    const response = await api.post("/product/create", {
+                        title,
+                        price,
+                        description,
+                        category,
+                        variations,
+                        userId,
+                        imageUrl: url,
+                    });
+
+                    setTitle("");
+                    setPrice("");
+                    setDescription("");
+                    setCategory(categories[0]);
+                    setVariations("");
+                    setImageSrc(null);
+                    setFileName(null);
+                    fileInputRef.current.value = "";
+                    toast.success(response.data.msg);
+                    scroll.scrollToTop({ duration: 0 });
+                }
+            );
         } catch (err) {
             toast.error(err.response.data.msg);
         }
-    }
+    };
 
     return (
         <div className={styles.add}>
@@ -106,7 +115,7 @@ export function AddProduct() {
                     placeholder="Ex: Corrente1"
                     type="text"
                     value={title}
-                    onChange={handleTitle}
+                    onChange={handleInputChange(setTitle)}
                 />
             </div>
             <div className={styles.add1}>
@@ -115,7 +124,7 @@ export function AddProduct() {
                     placeholder="Ex: 99,99"
                     type="text"
                     value={price}
-                    onChange={handlePrice}
+                    onChange={handleInputChange(setPrice)}
                 />
             </div>
             <div className={styles.add1}>
@@ -124,12 +133,12 @@ export function AddProduct() {
                     placeholder="Ex: Descrição completa do produto"
                     type="text"
                     value={description}
-                    onChange={handleDescription}
+                    onChange={handleInputChange(setDescription)}
                 />
             </div>
             <div className={styles.add1}>
                 <label>Categoria do produto</label>
-                <select value={category} onChange={handleCategory}>
+                <select value={category} onChange={handleInputChange(setCategory)}>
                     {categories.map((cat, index) => (
                         <option value={cat} key={index}>{cat}</option>
                     ))}
@@ -141,8 +150,10 @@ export function AddProduct() {
                     placeholder="Ex: P, M, G"
                     type="text"
                     value={variations}
-                    onChange={handleVariations}
+                    onChange={handleInputChange(setVariations)}
                 />
+            </div>
+            <div className={styles.add1}>
                 <button onClick={handleSubmit}>Criar</button>
             </div>
         </div>

@@ -10,7 +10,6 @@ import Bandeira2 from '../images/bandeiras cartao1.webp';
 import { useNavigate } from "react-router-dom";
 import { animateScroll as scroll } from 'react-scroll';
 import { ToastContainer, toast } from "react-toastify";
-import baseurl from '../baseurl/BaseUrl';
 import { CardProduct } from "../cardproduct/CardProduct";
 export function ProductPage() {
     const navigate = useNavigate();
@@ -70,7 +69,7 @@ export function ProductPage() {
             <ToastContainer />
             <div className={styles.compra}>
                 <div className={styles.imagem_principal}>
-                    <img src={`${baseurl}/${product.src}`} alt="imagem principal do produto" />
+                    <img src={product.imageUrl} alt="imagem principal do produto" />
                 </div>
 
                 <div className={styles.compra2}>
@@ -128,7 +127,7 @@ export function ProductPage() {
                         .map((objfilt, index) => (
                             <CardProduct
                                 title={objfilt.title}
-                                src={objfilt.src}
+                                imageUrl={objfilt.imageUrl}
                                 productId={objfilt._id}
                                 price={objfilt.price}
                                 category={objfilt.category}
@@ -147,7 +146,7 @@ export function ProductPage() {
                     <div className={styles.desktop1}>
                         <div className={styles.imagem_principal}>
 
-                            <img src={`${baseurl}/${product.src}`} alt="imagem principal do produto" />
+                            <img src={product.imageUrl} alt="imagem principal do produto" />
                         </div>
 
                     </div>
@@ -210,7 +209,7 @@ export function ProductPage() {
                         .map((objfilt, index) => (
                             <CardProduct
                                 title={objfilt.title}
-                                src={objfilt.src}
+                                imageUrl={objfilt.imageUrl}
                                 productId={objfilt._id}
                                 price={objfilt.price}
                                 category={objfilt.category}

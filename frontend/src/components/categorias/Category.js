@@ -24,7 +24,7 @@ export function Category() {
                 {product.filter(obj => obj.category === name).map((objfilt, index) => (
                     <CardProduct
                         title={objfilt.title}
-                        src={objfilt.src}
+                        imageUrl={objfilt.imageUrl}
                         productId={objfilt._id}
                         price={objfilt.price}
                         category={objfilt.category}
