@@ -101,7 +101,7 @@ svg {
 .active {
     overflow: auto;
     width: 100%;
-    transition: .3s;
+    transition: .4s;
 }
 
 

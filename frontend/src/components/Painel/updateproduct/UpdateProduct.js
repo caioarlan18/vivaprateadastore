@@ -56,11 +56,7 @@ export function UpdateProduct() {
         }
     };
 
-    const handleRemoveImage = () => {
-        setImageSrc('');
-        setNewFile(null);
-        fileInputRef.current.value = '';
-    };
+
 
     const extractFilePathFromUrl = (url) => {
         const pathStartIndex = url.indexOf("/o/") + 3;
@@ -83,7 +79,6 @@ export function UpdateProduct() {
         return new Promise((resolve, reject) => {
             const storageRef = ref(storage, filePath);
             const uploadTask = uploadBytesResumable(storageRef, file);
-
             uploadTask.on(
                 'state_changed',
                 null,
@@ -93,7 +88,6 @@ export function UpdateProduct() {
                 },
                 async () => {
                     const url = await getDownloadURL(uploadTask.snapshot.ref);
-                    toast.success("Imagem enviada com sucesso!");
                     resolve(url);
                 }
             );
@@ -148,7 +142,6 @@ export function UpdateProduct() {
                     {imageSrc && (
                         <div>
                             <img src={imageSrc} alt="Imagem atual do produto" />
-                            <button onClick={handleRemoveImage} style={{ backgroundColor: "red" }}>Remover Imagem</button>
                         </div>
                     )}
                     <input

@@ -69,7 +69,7 @@ export function Carrinho() {
                     {cart.map((item, index) => (
                         <div key={index} className={styles.carrinho2}>
                             <div className={styles.carrinho3}>
-                                <img src={`${baseurl}/${item.src}`} alt="imagem do produto" />
+                                <img src={item.imageUrl} alt="imagem do produto" />
                                 <p onClick={() => removeFromCart(index)}>remover</p>
                             </div>
                             <div className={styles.carrinho3}>
