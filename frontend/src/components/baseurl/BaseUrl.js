@@ -1,3 +1,3 @@
-const baseurl = "http://localhost:8080";
+const baseurl = "https://vivaprateadastore.onrender.com";
 
 export default baseurl;
