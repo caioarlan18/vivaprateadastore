@@ -14,6 +14,8 @@ import { Category } from './components/categorias/Category';
 import { Sobre } from './components/instucional/sobre/Sobre';
 import { EnviosEntregas } from './components/instucional/envios e entregas/EnviosEntregas';
 import { TrocasDevo } from './components/instucional/trocas e devo/TrocasDevo';
+import { Checkout } from './components/checkout/Checkout';
+import { CompraEfetuada } from './components/comprasucedida/CompraEfetuada';
 function App() {
   return (
     <Router>
@@ -32,6 +34,8 @@ function App() {
         <Route path='/sobre' element={<Sobre />} />
         <Route path='/envioentrega' element={<EnviosEntregas />} />
         <Route path='/trocas' element={<TrocasDevo />} />
+        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/compraefetuada' element={<CompraEfetuada />} />
       </Routes>
     </Router>
   );

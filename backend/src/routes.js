@@ -2,6 +2,7 @@ const express = require('express');
 const routes = express.Router();
 const userController = require("./controller/UserController");
 const ProductController = require("./controller/ProductController");
+const CheckoutController = require("./controller/CheckoutController");
 // authenticate
 routes.post("/auth/register", userController.register);
 routes.post("/auth/login", userController.login);
@@ -23,5 +24,8 @@ routes.get("/product/renderfavorite/:userId", ProductController.renderizarProdut
 routes.get("/product/all", ProductController.read);
 routes.get("/product/read/:id", ProductController.readOne);
 
+
+//checkout controller
+routes.post("/criarcheckout", CheckoutController.criarCheckout)
 
 module.exports = routes;

@@ -5,7 +5,6 @@ import styles from './Carrinho.module.css';
 import { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import baseurl from '../baseurl/BaseUrl';
 export function Carrinho() {
     const [cart, setCart] = useState([]);
     const navigate = useNavigate();
