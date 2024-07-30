@@ -29,7 +29,7 @@ module.exports = {
                     }
                 ],
                 soft_descriptor: 'VIVAPRATEADA',
-                redirect_url: `${baseurl}/compraefetuada`,
+                redirect_url: `${baseurl}compraefetuada`,
                 return_url: 'https://pagseguro.uol.com.br',
                 notification_urls: ['https://pagseguro.uol.com.br']
             }
