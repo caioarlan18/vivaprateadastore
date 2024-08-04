@@ -21,6 +21,7 @@ export function Checkout() {
     const [mostrarCampos, setMostrarCampos] = useState(false);
     const [erroCEP, setErroCEP] = useState(false);
     const [cartItems, setCartItems] = useState([]);
+
     const customer = {
         phone: {
             country: "+55",
@@ -57,6 +58,7 @@ export function Checkout() {
         address_modifiable: true,
 
     }
+
     // Função para recuperar os dados do carrinho ao carregar a página
     useEffect(() => {
         const savedCartItems = localStorage.getItem('cartItems');
@@ -64,26 +66,19 @@ export function Checkout() {
             setCartItems(JSON.parse(savedCartItems));
         }
     }, []);
-    const [total, setTotal] = useState(0);
 
-    useEffect(() => {
-        const calculateTotal = () => {
-            const sum = cartItems.reduce((accumulator, item) => {
-                if (item.promoPrice) {
-                    if (item.promoPrice.includes('R$ ')) {
-                        return accumulator + parseFloat(item.promoPrice.replace('R$ ', ''));
-                    } else {
-                        return accumulator + parseFloat(item.promoPrice);
-                    }
-                } else {
-                    return accumulator;
-                }
-            }, 0);
-            setTotal(sum);
-        };
 
-        calculateTotal();
-    }, [cartItems]);
+
+    const total = localStorage.getItem("total");
+    const limit = total >= 200 ? "4" : "1"
+    const payment_methods_configs = [
+        {
+            type: 'credit_card',
+            config_options: [
+                { option: 'installments_limit', value: limit },]
+        }
+    ]
+
 
     async function toBuy() {
         if (nome === '' || email === '' || phone === '' || cpf === '' || cep === '' || endereco === '' || numero === '' || bairro === '' || cidade === '' || estado === '') {
@@ -93,7 +88,8 @@ export function Checkout() {
                 const response = await api.post("/criarcheckout", {
                     customer,
                     items,
-                    shipping
+                    shipping,
+                    payment_methods_configs
                 })
                 console.log(response.data)
 

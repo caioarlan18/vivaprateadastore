@@ -5,6 +5,8 @@ import styles from './Carrinho.module.css';
 import { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+
 export function Carrinho() {
     const [cart, setCart] = useState([]);
     const navigate = useNavigate();
@@ -23,20 +25,20 @@ export function Carrinho() {
     };
     const [total, setTotal] = useState(0);
     useEffect(() => {
-        function total() {
-            if (cart) {
-                const sum = cart.reduce((accumulator, item) => {
-                    const priceStr = item.price.replace('R$', '').trim();
-                    const price = parseFloat(priceStr.replace(',', '.'));
-                    return accumulator + price;
-                }, 0);
-                setTotal(sum);
-            }
+
+        if (cart) {
+            const sum = cart.reduce((accumulator, item) => {
+                const priceStr = item.price.replace('R$', '').trim();
+                const price = parseFloat(priceStr.replace(',', '.'));
+                return accumulator + price;
+            }, 0);
+            setTotal(sum);
         }
-        total();
+
+
     }, [cart]);
 
-
+    localStorage.setItem('total', total)
 
     if (!cart || cart.length === 0) {
         return (
@@ -54,10 +56,19 @@ export function Carrinho() {
     }
 
     function checkout() {
-        navigate('/checkout')
+        const token = localStorage.getItem("token");
+        const userId = localStorage.getItem("id");
+        if (!token || !userId) {
+            toast.error("Crie uma conta ou faça login para continuar")
+
+        } else {
+            navigate('/checkout')
+        }
+
     }
     return (
         <div>
+            <ToastContainer />
             <Header />
 
 
