@@ -21,7 +21,7 @@ export function Checkout() {
     const [mostrarCampos, setMostrarCampos] = useState(false);
     const [erroCEP, setErroCEP] = useState(false);
     const [cartItems, setCartItems] = useState([]);
-
+    const frete = localStorage.getItem("frete");
     const customer = {
         phone: {
             country: "+55",
@@ -53,7 +53,7 @@ export function Checkout() {
             complement: complemento
         },
         type: "FIXED",
-        amount: 1000,
+        amount: Number(frete) * 100,
         service_type: "PAC",
         address_modifiable: true,
 
@@ -104,7 +104,6 @@ export function Checkout() {
         localStorage.setItem('email', email);
         localStorage.setItem('phone', phone);
         localStorage.setItem('cpf', cpf);
-        localStorage.setItem('cep', cep);
     }
     useEffect(() => {
         const nomeSalvo = localStorage.getItem('nome');

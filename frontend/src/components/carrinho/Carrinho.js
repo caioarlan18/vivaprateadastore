@@ -6,11 +6,15 @@ import { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-
+import api from '../../axiosConfig/axios';
 export function Carrinho() {
     const [cart, setCart] = useState([]);
+    const [frete, setFrete] = useState(0);
+    const [cep, setCep] = useState();
     const navigate = useNavigate();
     useEffect(() => {
+
+        setCep(localStorage.getItem("cep"))
         function fetchCart() {
             const cartItems = JSON.parse(localStorage.getItem("cartItems"));
             setCart(cartItems)
@@ -32,13 +36,12 @@ export function Carrinho() {
                 const price = parseFloat(priceStr.replace(',', '.'));
                 return accumulator + price;
             }, 0);
-            setTotal(sum);
+            setTotal(sum + Number(frete));
         }
 
 
-    }, [cart]);
+    }, [cart, calcularFrete]);
 
-    localStorage.setItem('total', total)
 
     if (!cart || cart.length === 0) {
         return (
@@ -59,13 +62,40 @@ export function Carrinho() {
         const token = localStorage.getItem("token");
         const userId = localStorage.getItem("id");
         if (!token || !userId) {
-            toast.error("Crie uma conta ou faça login para continuar")
+            toast.error("Crie uma conta ou faça login para continuar");
 
-        } else {
+        }
+        if (!frete) {
+            toast.error("Calcule o frete antes de prosseguir");
+        }
+        else {
+            localStorage.setItem('total', total)
+            localStorage.setItem("frete", frete);
+            localStorage.setItem("cep", cep);
             navigate('/checkout')
         }
 
     }
+
+
+    //calculo de frete
+
+    async function calcularFrete() {
+        if (!cep || cep.length < 8) {
+            toast.error("Coloque um cep válido")
+        }
+        try {
+            const response = await api.post("/calcfrete", {
+                cepCliente: cep
+            });
+            setFrete(response.data.price);
+
+        } catch (error) {
+            toast.error("Coloque um cep válido")
+        }
+    }
+
+
     return (
         <div>
             <ToastContainer />
@@ -89,6 +119,23 @@ export function Carrinho() {
                             </div>
                         </div>
                     ))}
+
+
+                    <div className={styles.calcFrete}>
+                        <h2>Calcular Frete</h2>
+                        <input
+                            type="number"
+                            value={cep}
+                            onChange={(e) => setCep(e.target.value)}
+                            placeholder="Digite o CEP"
+                            maxLength="9"
+                            style={styles.input}
+                        />
+                        <button onClick={calcularFrete} className={styles.calcButton}>
+                            Calcular
+                        </button>
+                    </div>
+
                     <div className={styles.carrinho4}>
                         <div className={styles.carrinho41}>
                             <div className={styles.carrinho4a}>
@@ -96,11 +143,11 @@ export function Carrinho() {
                             </div>
                             <div className={styles.carrinho4b}>
                                 <h2>{cart.length} produtos</h2>
-                                <h2>R$ {total.toFixed(2)}</h2>
+                                <h2>R$ {total.toFixed(2) - frete}</h2>
                             </div>
                             <div className={styles.carrinho4b}>
                                 <h2>frete</h2>
-                                <h2>grátis</h2>
+                                <h2>{!frete ? "calcule seu frete" : `PAC R$ ${frete}`}</h2>
                             </div>
                             <div className={styles.linha}>
 
