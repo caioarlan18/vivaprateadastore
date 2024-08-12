@@ -65,7 +65,7 @@ export function Carrinho() {
             toast.error("Crie uma conta ou faça login para continuar");
 
         }
-        if (!frete) {
+        else if (!frete) {
             toast.error("Calcule o frete antes de prosseguir");
         }
         else {
