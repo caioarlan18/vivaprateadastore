@@ -222,18 +222,19 @@
 }
 
 .calcFrete input {
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     border: #0D4389 1px solid;
     font-family: Zen Antique;
     outline: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    width: 40%;
 }
 
 
 .calcButton {
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
