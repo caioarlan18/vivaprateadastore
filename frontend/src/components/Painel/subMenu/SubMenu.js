@@ -18,15 +18,14 @@ export function SubMenu({ onMenuItemClick }) {
                     <Menu.Item key="info" icon={<UserOutlined />}>
                         Informações
                     </Menu.Item>
-                    {
-                        !userdata.role &&
-                        <Menu.Item key="lastpay" icon={<ShoppingOutlined />}>
-                            Últimas compras
-                        </Menu.Item>
-                    }
+
+                    <Menu.Item key="lastpay" icon={<ShoppingOutlined />}>
+                        Últimas compras
+                    </Menu.Item>
+
 
                     {
-                        userdata.role == 'admin' && <>
+                        userdata.role === 'admin' && <>
                             <Menu.Item key="seepay" icon={<ShoppingOutlined />}>
                                 Ver Vendas
                             </Menu.Item>

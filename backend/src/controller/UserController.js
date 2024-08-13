@@ -75,6 +75,23 @@ module.exports = {
         }
         return res.status(200).json(user)
 
+    },
+
+    async newTransaction(req, res) {
+        const { userId, transactionId, transactionName, transactionDate, transactionPrice } = req.body;
+        const user = await userModel.findById(userId);
+        if (!userId || !transactionId || !transactionName || !transactionDate || !transactionPrice) {
+            return res.status(400).json({ msg: "Erro ao fazer adição, tente novamente" });
+        } else if (!user) {
+            return res.status(400).json({ msg: "Usuário não encontrado, tente novamente" });
+        }
+        try {
+            user.transactions.push({ transactionId, transactionName, transactionDate, transactionPrice });
+            await user.save();
+            return res.status(200).json({ msg: "Transação adicionada com sucesso" });
+        } catch (error) {
+            return res.status(400).json({ msg: "Alguma coisa deu errado, tente novamente", error })
+        }
     }
 
 

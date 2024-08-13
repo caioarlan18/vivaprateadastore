@@ -3,7 +3,7 @@ module.exports = {
     async criarCheckout(req, res) {
         const { customer, items, shipping, payment_methods_configs } = req.body;
         const baseurl = "https://caioarlan18.github.io/vivaprateadastore/#/"
-        const token = "bbcb7b4a-218c-4a83-ba49-48292697e5719971a87a4185b5c68fbee78951fbc12a3888-06ed-4cd6-abcc-2d70755abeab";
+        const token = process.env.TOKENPAGBANK;
         const options = {
             method: 'POST',
             url: 'https://sandbox.api.pagseguro.com/checkouts',
@@ -13,8 +13,7 @@ module.exports = {
                 'Content-type': 'application/json'
             },
             data: {
-                reference_id: 'ITEM01', // Certifique-se de que é único
-                expiration_date: '2024-08-14T19:09:10-03:00', // Atualize para uma data futura
+                reference_id: 'PRODUTO',
                 customer: customer,
                 customer_modifiable: true,
                 items: items,
@@ -38,5 +37,24 @@ module.exports = {
             console.error(error.response ? error.response.data : error.message);
             res.status(500).json({ error: error.response ? error.response.data : error.message });
         }
+    },
+
+    async consultarCheckout(req, res) {
+        const { checkoutId } = req.body;
+        const token = process.env.TOKENPAGBANK
+        const options = {
+            method: 'GET',
+            url: `https://sandbox.api.pagseguro.com/checkouts/${checkoutId}`,
+            headers: { accept: '*/*', Authorization: `Bearer ${token}` }
+        };
+        try {
+            const response = await axios.request(options);
+            res.status(201).json(response.data);
+        } catch (error) {
+            res.status(400).json({ msg: "deu erro", error });
+        }
+
     }
 }
+
+

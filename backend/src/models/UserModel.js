@@ -5,6 +5,18 @@ const favoriteProductSchema = new mongoose.Schema({
     }
 })
 const paymentTransaction = new mongoose.Schema({
+    transactionId: {
+        type: String
+    },
+    transactionName: {
+        type: String
+    },
+    transactionPrice: {
+        type: String
+    },
+    transactionDate: {
+        type: String
+    }
 
 })
 const UserSchema = new mongoose.Schema({

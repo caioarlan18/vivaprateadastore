@@ -4,11 +4,11 @@ const userController = require("./controller/UserController");
 const ProductController = require("./controller/ProductController");
 const CheckoutController = require("./controller/CheckoutController");
 const CorreioController = require("./controller/CorreioController");
-// authenticate
+// user routes
 routes.post("/auth/register", userController.register);
 routes.post("/auth/login", userController.login);
 routes.get("/auth/logged/:id", userController.checkToken, userController.logged);
-
+routes.post("/newtransaction", userController.newTransaction);
 
 // private route product
 
@@ -28,7 +28,8 @@ routes.get("/product/read/:id", ProductController.readOne);
 
 //checkout controller
 routes.post("/criarcheckout", CheckoutController.criarCheckout);
-
+routes.get("/consultarcheckout", CheckoutController.consultarCheckout);
 //correios controller
 routes.post("/calcfrete", CorreioController.calcFrete);
+
 module.exports = routes;

@@ -91,7 +91,10 @@ export function Checkout() {
                     shipping,
                     payment_methods_configs
                 })
-                console.log(response.data)
+                localStorage.setItem("transactionId", response.data.id);
+                localStorage.setItem("transactionName", response.data.reference_id);
+                localStorage.setItem("transactionDate", response.data.created_at);
+
 
                 window.location.assign(response.data.links[1].href)
 
