@@ -1,0 +1,28 @@
+.comprasucedida1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 60px 0px;
+}
+
+.comprasucedida1 img {
+    width: 50%;
+}
+
+.comprasucedida1 h1 {
+    font-size: 25px;
+    font-family: Zen Antique;
+    color: #333333;
+}
+
+@media screen and (min-width: 992px) and (max-width: 4000px) {
+    .comprasucedida1 img {
+        width: 25%;
+    }
+
+    .comprasucedida1 h1 {
+        font-size: 30px;
+
+    }
+}

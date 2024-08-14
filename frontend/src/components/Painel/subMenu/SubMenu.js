@@ -20,7 +20,7 @@ export function SubMenu({ onMenuItemClick }) {
                     </Menu.Item>
 
                     <Menu.Item key="lastpay" icon={<ShoppingOutlined />}>
-                        Últimas compras
+                        Minhas compras
                     </Menu.Item>
 
 

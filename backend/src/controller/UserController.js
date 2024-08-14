@@ -85,14 +85,20 @@ module.exports = {
         } else if (!user) {
             return res.status(400).json({ msg: "Usuário não encontrado, tente novamente" });
         }
+        const existingTransaction = user.transactions.find(transaction => transaction.transactionId === transactionId);
+        if (existingTransaction) {
+            return res.status(400).json({ msg: "Essa transação já foi adicionada" });
+        }
         try {
+
             user.transactions.push({ transactionId, transactionName, transactionDate, transactionPrice });
             await user.save();
             return res.status(200).json({ msg: "Transação adicionada com sucesso" });
         } catch (error) {
             return res.status(400).json({ msg: "Alguma coisa deu errado, tente novamente", error })
         }
-    }
+    },
+
 
 
 }

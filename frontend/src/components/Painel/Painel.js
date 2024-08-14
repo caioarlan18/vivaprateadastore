@@ -7,6 +7,8 @@ import { AddProduct } from "./addProduct/AddProduct";
 import DeleteProductCard from "./DeleteProductCard/DeleteProductCard";
 import { useNavigate } from "react-router-dom";
 import UpdateProductCard from "./updateproduct/UpdateProductCard";
+import { LastPay } from "./lastpay/LastPay";
+import { SeePay } from "./seepay/SeePay";
 export function Painel() {
     const navigate = useNavigate();
     const userdata = JSON.parse(localStorage.getItem("userdata"));
@@ -33,7 +35,14 @@ export function Painel() {
                     <button onClick={logout}>Sair da conta</button>
                 </div>
             }
-
+            {
+                currentMenuItem === 'lastpay' &&
+                <LastPay />
+            }
+            {
+                currentMenuItem === 'seepay' &&
+                <SeePay />
+            }
             {
                 currentMenuItem === 'addproduct' &&
                 <AddProduct />

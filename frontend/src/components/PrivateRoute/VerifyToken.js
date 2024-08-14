@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import api from '../../axiosConfig/axios';
-export function VerifyToken({ children, rota }) {
+export function VerifyToken({ children }) {
     const navigate = useNavigate();
     const [isAuth, setIsAuth] = useState(false);
     useEffect(() => {

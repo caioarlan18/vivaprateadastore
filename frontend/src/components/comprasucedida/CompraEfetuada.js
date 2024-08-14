@@ -3,13 +3,12 @@ import { Header } from "../Header/Header";
 import styles from './CompraEfetuada.module.css';
 import { useEffect } from "react";
 import api from '../../axiosConfig/axios';
-import { ToastContainer, toast } from "react-toastify";
-
+import checkIcon from '../images/flat-icon-check.png';
 export function CompraEfetuada() {
 
 
     useEffect(() => {
-        async function newTransaction() {
+        async function NewTransaction() {
             const userId = localStorage.getItem("id");
             const transactionId = localStorage.getItem("transactionId");
             const transactionName = localStorage.getItem("transactionName");
@@ -26,19 +25,23 @@ export function CompraEfetuada() {
                     transactionPrice,
 
                 })
+                console.log(newTransaction.data.msg);
             } catch (error) {
-                toast.error("Algo deu errado, a compra não foi registrada no sistema, favor entre em contato com o suporte ")
-                console.log(error);
+                console.log(error.response.data.msg)
+
             }
         }
-        newTransaction();
+        NewTransaction();
 
-    })
+    }, []);
     return (
-        <div>
-            <ToastContainer />
+        <div className={styles.comprasucedida}>
             <Header />
-            <h1>Compra efetuada com sucesso</h1>
+            <div className={styles.comprasucedida1}>
+                <img src={checkIcon} alt={"icone-de-check"} />
+                <h1>Compra efetuada com sucesso</h1>
+            </div>
+
             <Footer />
         </div>
     )
