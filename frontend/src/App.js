@@ -37,7 +37,7 @@ function App() {
         <Route path='/trocas' element={<TrocasDevo />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/compraefetuada' element={<CompraEfetuada />} />
-        <Route path='/transaction/:id' element={<TransactionDetails />} />
+        <Route path='/transaction/:checkoutId' element={<TransactionDetails />} />
       </Routes>
     </Router>
   );

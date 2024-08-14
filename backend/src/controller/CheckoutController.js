@@ -40,7 +40,7 @@ module.exports = {
     },
 
     async consultarCheckout(req, res) {
-        const { checkoutId } = req.body;
+        const checkoutId = req.params.checkoutId;
         const token = process.env.TOKENPAGBANK
         const options = {
             method: 'GET',

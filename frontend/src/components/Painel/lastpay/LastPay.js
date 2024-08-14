@@ -4,8 +4,8 @@ export function LastPay() {
     const navigate = useNavigate();
     const userdata = JSON.parse(localStorage.getItem("userdata"));
     const transactions = userdata.transactions;
-    function seeDetails(id) {
-        navigate(`/transaction/${id}`)
+    function seeDetails(checkoutId) {
+        navigate(`/transaction/${checkoutId}`)
     }
     return (
         <div className={styles.tr}>
@@ -21,10 +21,10 @@ export function LastPay() {
 
                     return (
                         <div className={styles.tr1} key={index}>
-                            <h1>Compra {index + 1}</h1>
-                            <h2>R$ {tran.transactionPrice}</h2>
-                            <h3>Data: {formattedDate}</h3>
-                            <button onClick={() => seeDetails(tran.transactionId)}>Ver detalhes</button>
+                            <h1>Compra{index + 1}</h1>
+                            <h2>Total: <span>R${tran.transactionPrice}</span></h2>
+                            <h3>Efetuado: <span>{formattedDate}</span></h3>
+                            <p onClick={() => seeDetails(tran.transactionId)} href>ver detalhes</p>
                         </div>
                     );
                 })
