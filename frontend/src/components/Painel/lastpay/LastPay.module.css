@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .tr1 {
@@ -10,7 +11,7 @@
     padding: 20px 0px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     background-color: white;
-    margin: 20px 0px;
+    margin: 10px 0px;
     border-radius: 5px;
 }
 

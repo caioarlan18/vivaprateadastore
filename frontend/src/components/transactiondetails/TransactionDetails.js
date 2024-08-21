@@ -39,14 +39,15 @@ export function TransactionDetails() {
                 <div className={styles.details1}>
                     <h2>Informações da compra</h2>
                     {orderData.items && orderData.items.map((it, index) => (
-                        <div key={index}>
-                            <p>{it.name}</p>
+                        <div key={index} className={styles.pr}>
+                            <p> nome: {it.name}</p>
+                            <p>tipo: {it.reference_id}</p>
                             <p>preço: R${it.unit_amount / 100}</p>
                         </div>
                     ))}
-                    <h3>frete: {frete}</h3>
-                    <h3>forma de pagamento: {orderData.charges && orderData.charges[0].payment_method.type}</h3>
+                    <h3>frete: R${frete}</h3>
                     <h3>total: R${orderData.charges && orderData.charges[0].amount.summary.total / 100}</h3>
+                    <h3>forma de pagamento: {orderData.charges && orderData.charges[0].payment_method.type}</h3>
                     <h3>situação: pago</h3>
                 </div>
                 <div className={styles.details1}>
