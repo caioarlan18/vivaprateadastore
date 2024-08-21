@@ -29,6 +29,7 @@ routes.get("/product/read/:id", ProductController.readOne);
 //checkout controller
 routes.post("/criarcheckout", CheckoutController.criarCheckout);
 routes.get("/consultarcheckout/:checkoutId", CheckoutController.consultarCheckout);
+routes.get("/consultartransacao/:orderId", CheckoutController.consultarTransacao);
 //correios controller
 routes.post("/calcfrete", CorreioController.calcFrete);
 

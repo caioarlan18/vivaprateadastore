@@ -26,9 +26,7 @@ export function SubMenu({ onMenuItemClick }) {
 
                     {
                         userdata.role === 'admin' && <>
-                            <Menu.Item key="seepay" icon={<ShoppingOutlined />}>
-                                Ver Vendas
-                            </Menu.Item>
+
                             <Menu.Item key="addproduct" icon={<PlusOutlined />}>
                                 Adicionar Produto
                             </Menu.Item>

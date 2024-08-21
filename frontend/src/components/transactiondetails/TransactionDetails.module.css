@@ -1,0 +1,55 @@
+.details {
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.details1 {
+    margin: 20px 0px;
+    width: 90%;
+}
+
+.details1 h1,
+.details1 h2,
+.details1 p,
+.details1 h3 {
+    font-family: Zen Antique;
+}
+
+.details1 h1 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.details h2 {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.details p {
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 400;
+
+}
+
+.details h3 {
+    margin-top: 15px;
+    font-size: 17px;
+    color: #333333;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 992px) and (max-width: 4000px) {
+    .details {
+        width: 50%;
+    }
+}

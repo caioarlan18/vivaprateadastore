@@ -54,6 +54,22 @@ module.exports = {
             res.status(400).json({ msg: "deu erro", error });
         }
 
+    },
+
+    async consultarTransacao(req, res) {
+        const orderId = req.params.orderId;
+        const token = process.env.TOKENPAGBANK
+        const options = {
+            method: 'GET',
+            url: `https://sandbox.api.pagseguro.com/orders/${orderId}`,
+            headers: { accept: '*/*', Authorization: `Bearer ${token}` }
+        };
+        try {
+            const response = await axios.request(options);
+            res.status(201).json(response.data);
+        } catch (error) {
+            res.status(400).json({ msg: "deu erro", error });
+        }
     }
 }
 

@@ -34,7 +34,7 @@ export function Checkout() {
 
     }
     const items = cartItems.map((item, index) => ({
-        reference_id: `PRODUTO${index}`,
+        reference_id: item.variations ? `TIPO: ${item.variations}` : `PRODUTO SEM VARIACAO`,
         name: item.title,
         quantity: 1,
         unit_amount: Number(item.price.replace(/[^0-9,-]+/g, "").replace(",", ".")) * 100,
@@ -96,7 +96,7 @@ export function Checkout() {
                 localStorage.setItem("transactionDate", response.data.created_at);
 
 
-                window.location.assign(response.data.links[1].href)
+                window.location.href = response.data.links[1].href
 
             } catch (err) {
                 toast.error(err.response.data.error)
