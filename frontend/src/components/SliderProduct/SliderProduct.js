@@ -2,13 +2,14 @@ import styles from './SliderProduct.module.css';
 import api from '../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Card } from 'antd';
+import { Card, Pagination } from 'antd';
 import { ShoppingCartOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { animateScroll as scroll } from 'react-scroll';
+import { Navigation } from 'swiper/modules';
 const { Meta } = Card;
 
 export function SliderProduct() {
@@ -111,12 +112,14 @@ export function SliderProduct() {
                 <h1>nossas peças</h1>
                 <p>confira todas nossas peças disponíveis</p>
             </div>
-            <Swiper spaceBetween={30} slidesPerView={2} className={styles.card}
+            <Swiper spaceBetween={30} slidesPerView={2} className={styles.card} modules={[Navigation]}
                 breakpoints={{
                     992: {
                         slidesPerView: 5
                     }
                 }}
+
+                navigation
             >
                 {products.map((produto, index) => (
                     <SwiperSlide key={index}>
