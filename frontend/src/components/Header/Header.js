@@ -41,7 +41,7 @@ export function Header() {
 
             {/* header mobile */}
             <div className={styles.premenu}>
-                <h1>Texto para botar aqui ex: frete grátis para todo brasil</h1>
+                <h1>Entregamos para todo Brasil!</h1>
             </div>
             <div className={styles.headerMobile}>
                 <div className={styles.headerMobile1} >
@@ -69,9 +69,9 @@ export function Header() {
                         <img src={logotipo} alt="logo do site" />
                         <h1>VIVA<br />Prateada</h1>
                     </Link>
-                    <div onClick={handleOpenCat} className={styles.drop}>
-                        <span>Categorias <FaAngleDown /></span>
-                        <Link to={"/novidades"}><span>Novidades</span></Link>
+                    <div className={styles.drop}>
+                        <span onClick={handleOpenCat}>Categorias <FaAngleDown /></span>
+                        <Link to={"/novidades"}><span>Nosso catálogo</span></Link>
                     </div>
 
                     <div className={styles.headerDesktop1}>
@@ -85,6 +85,8 @@ export function Header() {
 
                 {openCat && <div className={styles.menubottom1}>
                     <div className={styles.nav2d} >
+
+
                         {categories.map((cat, index) => (
                             <Link to={`/category/${cat}`} key={index} onClick={() => setOpenCat(false)}>{cat}</Link>
                         ))}
@@ -111,6 +113,7 @@ export function Header() {
                 </div>
 
                 <div className={styles.nav2} >
+                    <Link to={"/novidades"}><span>Nosso catálogo</span></Link>
                     {categories.map((cat, index) => (
                         <Link to={`/category/${cat}`} key={index} onClick={close}><span>{cat}</span></Link>
                     ))}

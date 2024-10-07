@@ -16,15 +16,66 @@
     display: none;
 }
 
+.bannerMobile :global(.swiper-button-next) {
+    background-color: #0d4389;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.bannerMobile :global(.swiper-button-prev) {
+    background-color: #0d4389;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannerDesktop :global(.swiper-button-next) {
+    background-color: #0d4389;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.bannerDesktop :global(.swiper-button-prev) {
+    background-color: #0d4389;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media screen and (min-width:992px) and (max-width: 4000px) {
     .bannerDesktop {
         display: block;
+
     }
 
     .banner {
-        margin: 0;
+        margin-top: 20px;
+        border-radius: 15px;
+        width: 95%;
     }
 
     .bannerMobile {

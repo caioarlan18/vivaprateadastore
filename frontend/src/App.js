@@ -17,6 +17,7 @@ import { TrocasDevo } from './components/instucional/trocas e devo/TrocasDevo';
 import { Checkout } from './components/checkout/Checkout';
 import { CompraEfetuada } from './components/comprasucedida/CompraEfetuada';
 import { TransactionDetails } from './components/transactiondetails/TransactionDetails';
+import { Novidades } from './components/novidades/Novidades';
 function App() {
   return (
     <Router>
@@ -38,6 +39,7 @@ function App() {
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/compraefetuada' element={<CompraEfetuada />} />
         <Route path='/transaction/:checkoutId' element={<TransactionDetails />} />
+        <Route path='/novidades' element={<Novidades />} />
       </Routes>
     </Router>
   );
