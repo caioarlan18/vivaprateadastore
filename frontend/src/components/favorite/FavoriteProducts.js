@@ -44,29 +44,6 @@ export function FavoriteProducts() {
 
     }
 
-    const [cartItems, setCartItems] = useState([]);
-
-    async function addCart(id) {
-        try {
-            const response = await api.get(`/product/read/${id}`);
-            if (!response.data.variations) {
-                const updatedCartItems = [...cartItems, response.data];
-                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-                toast.success("Adicionado ao carrinho com sucesso")
-            } else {
-                toast.error("Esse produto possui variações, entre no produto e escolha para depois adicionar ao carrinho")
-            }
-
-        } catch (err) {
-            toast.error(err.response.data.msg)
-        }
-    }
-    useEffect(() => {
-        const savedCartItems = localStorage.getItem('cartItems');
-        if (savedCartItems) {
-            setCartItems(JSON.parse(savedCartItems));
-        }
-    }, []);
     return (
         <div>
             <Header />
@@ -88,17 +65,17 @@ export function FavoriteProducts() {
                                 className={styles.card1}
                                 cover={<img alt="example" src={produto.imageUrl} />}
                                 actions={[
-                                    <ShoppingCartOutlined onClick={() => addCart(produto._id)} style={{ fontSize: '18px' }} />,
-                                    <HeartFilled onClick={() => removeFavorite(produto._id)} style={{ color: '#a4003d', fontSize: '18px' }} />
+                                    <HeartFilled onClick={(e) => { e.stopPropagation(); removeFavorite(produto._id) }} style={{ color: '#a4003d', fontSize: '18px' }} />
                                 ]}
                                 key={index}
+                                onClick={() => comprar(produto._id)}
                             >
                                 <Meta
                                     title={<h1>{produto.title}</h1>}
 
                                 />
                                 <p>R${produto.price}</p>
-                                <button onClick={() => comprar(produto._id)}>Comprar</button>
+
                             </Card>
                         ))}
                     </div>

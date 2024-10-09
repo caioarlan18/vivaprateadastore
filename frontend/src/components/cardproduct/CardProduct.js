@@ -66,31 +66,6 @@ export function CardProduct({ imageUrl, productId, price, title, category, index
         fetchFavorites();
     }, [addFavorite])
 
-
-    const [cartItems, setCartItems] = useState([]);
-
-    async function addCart(id) {
-        try {
-            const response = await api.get(`/product/read/${id}`);
-            if (!response.data.variations) {
-                const updatedCartItems = [...cartItems, response.data];
-                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-                toast.success("Adicionado ao carrinho com sucesso")
-
-            } else {
-                toast.error("Esse produto possui variações, entre no produto e escolha, para depois adicionar ao carrinho")
-            }
-
-        } catch (err) {
-            toast.error(err.response.data.msg)
-        }
-    }
-    useEffect(() => {
-        const savedCartItems = localStorage.getItem('cartItems');
-        if (savedCartItems) {
-            setCartItems(JSON.parse(savedCartItems));
-        }
-    }, []);
     return (
         <>
             <ToastContainer />
@@ -98,12 +73,12 @@ export function CardProduct({ imageUrl, productId, price, title, category, index
                 className={styles.card1}
                 cover={<img src={imageUrl} alt="imagem do produto" />}
                 actions={[
-                    <ShoppingCartOutlined onClick={() => addCart(productId)} style={{ fontSize: '18px' }} />,
                     favorite.some(favorite => favorite._id === productId) ?
-                        <HeartFilled onClick={() => addFavorite(productId)} style={{ color: '#a4003d', fontSize: '18px' }} /> :
-                        <HeartOutlined onClick={() => addFavorite(productId)} style={{ fontSize: '18px' }} />
+                        <HeartFilled onClick={(e) => { e.stopPropagation(); addFavorite(productId) }} style={{ color: '#a4003d', fontSize: '18px' }} /> :
+                        <HeartOutlined onClick={(e) => { e.stopPropagation(); addFavorite(productId) }} style={{ fontSize: '18px' }} />
                 ]}
                 key={index}
+                onClick={() => comprar(productId)}
             >
 
 
@@ -111,7 +86,7 @@ export function CardProduct({ imageUrl, productId, price, title, category, index
                     title={<h1>{title}</h1>}
                 />
                 <p>R${price}</p>
-                <button onClick={() => comprar(productId)}>Comprar</button>
+
             </Card>
         </>
 

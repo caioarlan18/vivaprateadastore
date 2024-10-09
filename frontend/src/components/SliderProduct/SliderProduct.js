@@ -3,7 +3,7 @@ import api from '../../axiosConfig/axios';
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Card, Pagination } from 'antd';
-import { ShoppingCartOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
+import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -78,30 +78,8 @@ export function SliderProduct() {
     }, [addFavorite])
 
 
-    const [cartItems, setCartItems] = useState([]);
 
-    async function addCart(id) {
-        try {
-            const response = await api.get(`/product/read/${id}`);
-            if (!response.data.variations) {
-                const updatedCartItems = [...cartItems, response.data];
-                localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-                toast.success("Adicionado ao carrinho com sucesso")
 
-            } else {
-                toast.error("Esse produto possui variações, entre no produto e escolha, para depois adicionar ao carrinho")
-            }
-
-        } catch (err) {
-            toast.error(err.response.data.msg)
-        }
-    }
-    useEffect(() => {
-        const savedCartItems = localStorage.getItem('cartItems');
-        if (savedCartItems) {
-            setCartItems(JSON.parse(savedCartItems));
-        }
-    }, []);
 
 
 
@@ -127,18 +105,17 @@ export function SliderProduct() {
                             className={styles.card1}
                             cover={<img src={produto.imageUrl} alt="imagem do produto" />}
                             actions={[
-                                <ShoppingCartOutlined onClick={() => addCart(produto._id)} style={{ fontSize: '18px' }} />,
                                 favorite.some(favorite => favorite._id === produto._id) ?
-                                    <HeartFilled onClick={() => addFavorite(produto._id)} style={{ color: '#a4003d', fontSize: '18px' }} /> :
-                                    <HeartOutlined onClick={() => addFavorite(produto._id)} style={{ fontSize: '18px' }} />
+                                    <HeartFilled onClick={(e) => { e.stopPropagation(); addFavorite(produto._id) }} style={{ color: '#a4003d', fontSize: '18px' }} /> :
+                                    <HeartOutlined onClick={(e) => { e.stopPropagation(); addFavorite(produto._id) }} style={{ fontSize: '18px' }} />
                             ]}
+                            onClick={() => comprar(produto._id)}
                         >
                             <Meta
                                 title={<h1>{produto.title}</h1>}
 
                             />
                             <p>R${produto.price}</p>
-                            <button onClick={() => comprar(produto._id)}>Comprar</button>
                         </Card>
                     </SwiperSlide>
                 ))}

@@ -1,6 +1,7 @@
 .card1 {
     width: 45%;
     margin: 10px 5px;
+    cursor: pointer;
 }
 
 .card1 h1 {
