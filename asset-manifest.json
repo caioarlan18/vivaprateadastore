@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/vivaprateadastore/static/css/main.53bd12ca.css",
-    "main.js": "/vivaprateadastore/static/js/main.0b62e971.js",
+    "main.css": "/vivaprateadastore/static/css/main.fd3e7695.css",
+    "main.js": "/vivaprateadastore/static/js/main.baee09d1.js",
     "static/js/453.8ab44547.chunk.js": "/vivaprateadastore/static/js/453.8ab44547.chunk.js",
     "static/media/banner 5 desktop.PNG": "/vivaprateadastore/static/media/banner 5 desktop.7259d0cb0fad52858217.PNG",
     "static/media/banner 3 desktop.PNG": "/vivaprateadastore/static/media/banner 3 desktop.f3ac5dac05d733f4ed93.PNG",
@@ -18,12 +18,12 @@
     "static/media/bandeiras cartao1.webp": "/vivaprateadastore/static/media/bandeiras cartao1.b4e7b404d662f3251ed8.webp",
     "static/media/bandeira_pagamento.webp": "/vivaprateadastore/static/media/bandeira_pagamento.73cc980fa6c6967c0943.webp",
     "index.html": "/vivaprateadastore/index.html",
-    "main.53bd12ca.css.map": "/vivaprateadastore/static/css/main.53bd12ca.css.map",
-    "main.0b62e971.js.map": "/vivaprateadastore/static/js/main.0b62e971.js.map",
+    "main.fd3e7695.css.map": "/vivaprateadastore/static/css/main.fd3e7695.css.map",
+    "main.baee09d1.js.map": "/vivaprateadastore/static/js/main.baee09d1.js.map",
     "453.8ab44547.chunk.js.map": "/vivaprateadastore/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.53bd12ca.css",
-    "static/js/main.0b62e971.js"
+    "static/css/main.fd3e7695.css",
+    "static/js/main.baee09d1.js"
   ]
 }
