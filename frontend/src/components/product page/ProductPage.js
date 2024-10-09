@@ -9,7 +9,6 @@ import Bandeira1 from '../images/bandeira2.webp';
 import Bandeira2 from '../images/bandeiras cartao1.webp';
 import { useNavigate } from "react-router-dom";
 import { animateScroll as scroll } from 'react-scroll';
-import { ToastContainer, toast } from "react-toastify";
 import { CardProduct } from "../cardproduct/CardProduct";
 export function ProductPage() {
     const navigate = useNavigate();
@@ -47,7 +46,7 @@ export function ProductPage() {
         product.variations = selectVar
         const updatedCartItems = [...cartItems, product];
         localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-        toast.success("Adicionado no carrinho com sucesso");
+        alert("Adicionado no carrinho com sucesso");
     }
     useEffect(() => {
         const savedCartItems = localStorage.getItem('cartItems');
@@ -66,7 +65,6 @@ export function ProductPage() {
     return (
         <div>
             <Header />
-            <ToastContainer />
             <div className={styles.compra}>
                 <div className={styles.imagem_principal}>
                     <img src={product.imageUrl} alt="imagem principal do produto" />

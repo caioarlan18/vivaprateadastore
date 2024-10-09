@@ -27,13 +27,6 @@ export function Header() {
         }
     }, [])
 
-    //contador de itens carrinho
-    const [cartItems, setCartItems] = useState([])
-    useEffect(() => {
-        const cartItemsSaved = JSON.parse(localStorage.getItem("cartItems"));
-        setCartItems(cartItemsSaved);
-    }, [])
-
     function close() {
         const menu = document.querySelector(`.${styles.menuHamburguer}`);
         menu.classList.remove(styles.active);
