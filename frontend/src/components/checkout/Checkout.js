@@ -99,7 +99,7 @@ export function Checkout() {
                 window.location.href = response.data.links[1].href
 
             } catch (err) {
-                toast.error(err.response.data.error)
+                toast.error("Confira se o Email, Número de celular e o CPF está correto, pois a escrita incorreta de alguns desses dados não te deixará avançar");
             }
         }
 

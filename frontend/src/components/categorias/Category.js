@@ -6,6 +6,7 @@ import api from '../../axiosConfig/axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Navigation } from '../navigation/Navigation';
+
 export function Category() {
     const { name } = useParams();
     const [product, setProduct] = useState([]);

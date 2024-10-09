@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logotipo from '../images/logosite.jpg';
 import categories from '../categoryArray/CategoryArr';
+import { animateScroll as scroll } from "react-scroll";
+
 export function Header() {
     const [openCat, setOpenCat] = useState(false);
     const [logged, setLogged] = useState(false);
@@ -35,35 +37,43 @@ export function Header() {
     function close() {
         const menu = document.querySelector(`.${styles.menuHamburguer}`);
         menu.classList.remove(styles.active);
+        scroll.scrollToTop({ duration: 0 });
+
     }
     return (
         <div>
 
             {/* header mobile */}
-            <div className={styles.premenu}>
-                <h1>Entregamos para todo Brasil!</h1>
-            </div>
-            <div className={styles.headerMobile}>
-                <div className={styles.headerMobile1} >
-                    <FaBars onClick={menuOpen} />
+            <div className={styles.menufixo}>
+                <div className={styles.premenu}>
+                    <h1>Entregamos para todo Brasil!</h1>
                 </div>
-                <Link className={styles.headerMobile1} to={"/"}>
-                    <img src={logotipo} alt="logo do site" />
-                    <h1>VIVA <br />Prateada</h1>
-                </Link>
-                <div className={styles.headerMobile1} >
-                    <Link to={"/favorites"}>
-                        <FaHeart style={{ position: "relative", right: "10px" }} />
+                <div className={styles.headerMobile}>
+                    <div className={styles.headerMobile1} >
+                        <FaBars onClick={menuOpen} />
+                    </div>
+                    <Link className={styles.headerMobile1} to={"/"}>
+                        <img src={logotipo} alt="logo do site" />
+                        <h1>VIVA <br />Prateada</h1>
                     </Link>
-                    <Link to={"/carrinho"}>
-                        <FaShoppingCart />
-                    </Link>
+                    <div className={styles.headerMobile1} >
+                        <Link to={"/favorites"} onClick={() => scroll.scrollToTop({ duration: 0 })}>
+                            <FaHeart style={{ position: "relative", right: "10px" }} />
+                        </Link>
+                        <Link to={"/carrinho"} onClick={() => scroll.scrollToTop({ duration: 0 })}>
+                            <FaShoppingCart />
+                        </Link>
 
+                    </div>
                 </div>
             </div>
+            <div className={styles.spacer}></div>
 
             {/* header desktop */}
             <div className={styles.onlyDesktop}>
+                <div className={styles.premenuD}>
+                    <h1>Entregamos para todo Brasil!</h1>
+                </div>
                 <div className={styles.headerDesktop}>
                     <Link className={styles.headerDesktop1} to={"/"}>
                         <img src={logotipo} alt="logo do site" />
@@ -76,8 +86,8 @@ export function Header() {
 
                     <div className={styles.headerDesktop1}>
                         <Link to={"/login"}>{logged ? <span>Olá {userdata.name}</span> : <span>Login</span>}<FaUser /></Link>
-                        <Link to={"/favorites"}><FaHeart /></Link>
-                        <Link to={'/carrinho'}><FaShoppingCart /></Link>
+                        <Link to={"/favorites"} onClick={() => scroll.scrollToTop({ duration: 0 })}><FaHeart /></Link>
+                        <Link to={'/carrinho'} onClick={() => scroll.scrollToTop({ duration: 0 })}><FaShoppingCart /></Link>
 
 
                     </div>
@@ -88,14 +98,12 @@ export function Header() {
 
 
                         {categories.map((cat, index) => (
-                            <Link to={`/category/${cat}`} key={index} onClick={() => setOpenCat(false)}>{cat}</Link>
+                            <Link to={`/category/${cat}`} key={index} onClick={() => { setOpenCat(false) }}>{cat}</Link>
                         ))}
                     </div>
                 </div>}
-
-
             </div>
-
+            <div className={styles.spacerD}></div>
             {/* menu hamburguer */}
             <div className={styles.menuHamburguer}>
                 <div className={styles.log}>
@@ -113,7 +121,7 @@ export function Header() {
                 </div>
 
                 <div className={styles.nav2} >
-                    <Link to={"/novidades"}><span>Nosso catálogo</span></Link>
+                    <Link to={"/novidades"} onClick={() => scroll.scrollToTop({ duration: 0 })}><span>Nosso catálogo</span></Link>
                     {categories.map((cat, index) => (
                         <Link to={`/category/${cat}`} key={index} onClick={close}><span>{cat}</span></Link>
                     ))}
