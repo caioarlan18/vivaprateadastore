@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/vivaprateadastore/static/css/main.9dd6e406.css",
+    "main.css": "/vivaprateadastore/static/css/main.1a42da40.css",
     "main.js": "/vivaprateadastore/static/js/main.8950a69c.js",
     "static/js/453.8ab44547.chunk.js": "/vivaprateadastore/static/js/453.8ab44547.chunk.js",
     "static/media/banner 5 desktop.PNG": "/vivaprateadastore/static/media/banner 5 desktop.7259d0cb0fad52858217.PNG",
@@ -18,12 +18,12 @@
     "static/media/bandeiras cartao1.webp": "/vivaprateadastore/static/media/bandeiras cartao1.b4e7b404d662f3251ed8.webp",
     "static/media/bandeira_pagamento.webp": "/vivaprateadastore/static/media/bandeira_pagamento.73cc980fa6c6967c0943.webp",
     "index.html": "/vivaprateadastore/index.html",
-    "main.9dd6e406.css.map": "/vivaprateadastore/static/css/main.9dd6e406.css.map",
+    "main.1a42da40.css.map": "/vivaprateadastore/static/css/main.1a42da40.css.map",
     "main.8950a69c.js.map": "/vivaprateadastore/static/js/main.8950a69c.js.map",
     "453.8ab44547.chunk.js.map": "/vivaprateadastore/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9dd6e406.css",
+    "static/css/main.1a42da40.css",
     "static/js/main.8950a69c.js"
   ]
 }
