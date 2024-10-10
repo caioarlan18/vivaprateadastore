@@ -74,7 +74,7 @@ export function Header() {
                     </Link>
                     <div className={styles.drop}>
                         <span onClick={handleOpenCat}>Categorias <FaAngleDown /></span>
-                        <Link to={"/novidades"}><span>Nosso catálogo</span></Link>
+                        <Link to={"/catalogo"}><span>Nosso catálogo</span></Link>
                     </div>
 
                     <div className={styles.headerDesktop1}>
@@ -109,12 +109,10 @@ export function Header() {
                         <div></div>
                         <Link to={'/login'}><FaUser />{logged ? <span>Olá {userdata.name}</span> : <span>MINHA CONTA</span>}</Link>
                     </div>
-
-
                 </div>
 
                 <div className={styles.nav2} >
-                    <Link to={"/novidades"} onClick={() => scroll.scrollToTop({ duration: 0 })}><span>Nosso catálogo</span></Link>
+                    <Link to={"/catalogo"} onClick={() => scroll.scrollToTop({ duration: 0 })}><span>Nosso catálogo</span></Link>
                     {categories.map((cat, index) => (
                         <Link to={`/category/${cat}`} key={index} onClick={close}><span>{cat}</span></Link>
                     ))}
@@ -122,10 +120,5 @@ export function Header() {
             </div>
 
         </div>
-
-
-
-
-
     )
 }
