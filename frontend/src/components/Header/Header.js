@@ -102,7 +102,10 @@ export function Header() {
                 <div className={styles.log}>
                     <div className={styles.log1}>
                         <h1>MENU</h1>
-                        <FaTimes onClick={close} />
+                        <FaTimes onClick={() => {
+                            const menu = document.querySelector(`.${styles.menuHamburguer}`);
+                            menu.classList.remove(styles.active);
+                        }} />
                     </div>
                     <div className={styles.log2}>
                         <Link to={'/'} onClick={close}>Início</Link>
@@ -112,7 +115,7 @@ export function Header() {
                 </div>
 
                 <div className={styles.nav2} >
-                    <Link to={"/catalogo"} onClick={() => scroll.scrollToTop({ duration: 0 })}><span>Nosso catálogo</span></Link>
+                    <Link to={"/catalogo"} onClick={close}><span>Nosso catálogo</span></Link>
                     {categories.map((cat, index) => (
                         <Link to={`/category/${cat}`} key={index} onClick={close}><span>{cat}</span></Link>
                     ))}
