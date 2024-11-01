@@ -24,7 +24,7 @@ module.exports = {
                 payment_methods_configs: payment_methods_configs,
                 soft_descriptor: 'VIVAPRATEADA',
                 redirect_url: `${baseurl}compraefetuada`,
-                return_url: 'https://pagseguro.uol.com.br',
+                return_url: `${baseurl}checkout`,
                 notification_urls: ['https://pagseguro.uol.com.br']
             }
         };
