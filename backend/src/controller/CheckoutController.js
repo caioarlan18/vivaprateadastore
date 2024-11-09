@@ -6,7 +6,7 @@ module.exports = {
         const token = process.env.TOKENPAGBANK;
         const options = {
             method: 'POST',
-            url: 'https://sandbox.api.pagseguro.com/checkouts',
+            url: 'https://api.pagseguro.com/checkouts',
             headers: {
                 accept: '*/*',
                 Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ module.exports = {
         const token = process.env.TOKENPAGBANK
         const options = {
             method: 'GET',
-            url: `https://sandbox.api.pagseguro.com/checkouts/${checkoutId}`,
+            url: `https://api.pagseguro.com/checkouts/${checkoutId}`,
             headers: { accept: '*/*', Authorization: `Bearer ${token}` }
         };
         try {
@@ -61,7 +61,7 @@ module.exports = {
         const token = process.env.TOKENPAGBANK
         const options = {
             method: 'GET',
-            url: `https://sandbox.api.pagseguro.com/orders/${orderId}`,
+            url: `https://api.pagseguro.com/orders/${orderId}`,
             headers: { accept: '*/*', Authorization: `Bearer ${token}` }
         };
         try {
