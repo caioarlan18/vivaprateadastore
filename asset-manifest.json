@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/vivaprateadastore/static/css/main.88fa3921.css",
-    "main.js": "/vivaprateadastore/static/js/main.edd9b0c0.js",
-    "static/js/453.8ab44547.chunk.js": "/vivaprateadastore/static/js/453.8ab44547.chunk.js",
-    "static/media/banner 5 desktop.PNG": "/vivaprateadastore/static/media/banner 5 desktop.7259d0cb0fad52858217.PNG",
-    "static/media/banner 3 desktop.PNG": "/vivaprateadastore/static/media/banner 3 desktop.f3ac5dac05d733f4ed93.PNG",
-    "static/media/banner 2 desktop.PNG": "/vivaprateadastore/static/media/banner 2 desktop.479be5f99541dbd5a887.PNG",
-    "static/media/banner 4 desktop.PNG": "/vivaprateadastore/static/media/banner 4 desktop.31a7ca13b612130ffc78.PNG",
-    "static/media/banner 1 desktop.PNG": "/vivaprateadastore/static/media/banner 1 desktop.f4d2e62b49a21a603e8a.PNG",
-    "static/media/banner 2 mobile.png": "/vivaprateadastore/static/media/banner 2 mobile.69c0e96c65bcb90f97d0.png",
-    "static/media/banner 5 mobile.png": "/vivaprateadastore/static/media/banner 5 mobile.23a940ef36746a9ef5bc.png",
-    "static/media/banner 3 mobile.png": "/vivaprateadastore/static/media/banner 3 mobile.89c69a4fc21266a12a9f.png",
-    "static/media/banner 4 mobile.png": "/vivaprateadastore/static/media/banner 4 mobile.0aa9ca3ca8da87b74761.png",
-    "static/media/banner 1 mobile.png": "/vivaprateadastore/static/media/banner 1 mobile.6af5a48459d6ccee4a10.png",
-    "static/media/flat-icon-check.png": "/vivaprateadastore/static/media/flat-icon-check.b677073ee554ca0995db.png",
-    "static/media/bandeira2.webp": "/vivaprateadastore/static/media/bandeira2.e305f83f633486ccff83.webp",
-    "static/media/bandeiras cartao1.webp": "/vivaprateadastore/static/media/bandeiras cartao1.b4e7b404d662f3251ed8.webp",
-    "static/media/bandeira_pagamento.webp": "/vivaprateadastore/static/media/bandeira_pagamento.73cc980fa6c6967c0943.webp",
-    "index.html": "/vivaprateadastore/index.html",
-    "main.88fa3921.css.map": "/vivaprateadastore/static/css/main.88fa3921.css.map",
-    "main.edd9b0c0.js.map": "/vivaprateadastore/static/js/main.edd9b0c0.js.map",
-    "453.8ab44547.chunk.js.map": "/vivaprateadastore/static/js/453.8ab44547.chunk.js.map"
+    "main.css": "/static/css/main.88fa3921.css",
+    "main.js": "/static/js/main.4bf84264.js",
+    "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
+    "static/media/banner 5 desktop.PNG": "/static/media/banner 5 desktop.7259d0cb0fad52858217.PNG",
+    "static/media/banner 3 desktop.PNG": "/static/media/banner 3 desktop.f3ac5dac05d733f4ed93.PNG",
+    "static/media/banner 2 desktop.PNG": "/static/media/banner 2 desktop.479be5f99541dbd5a887.PNG",
+    "static/media/banner 4 desktop.PNG": "/static/media/banner 4 desktop.31a7ca13b612130ffc78.PNG",
+    "static/media/banner 1 desktop.PNG": "/static/media/banner 1 desktop.f4d2e62b49a21a603e8a.PNG",
+    "static/media/banner 2 mobile.png": "/static/media/banner 2 mobile.69c0e96c65bcb90f97d0.png",
+    "static/media/banner 5 mobile.png": "/static/media/banner 5 mobile.23a940ef36746a9ef5bc.png",
+    "static/media/banner 3 mobile.png": "/static/media/banner 3 mobile.89c69a4fc21266a12a9f.png",
+    "static/media/banner 4 mobile.png": "/static/media/banner 4 mobile.0aa9ca3ca8da87b74761.png",
+    "static/media/banner 1 mobile.png": "/static/media/banner 1 mobile.6af5a48459d6ccee4a10.png",
+    "static/media/flat-icon-check.png": "/static/media/flat-icon-check.b677073ee554ca0995db.png",
+    "static/media/bandeira2.webp": "/static/media/bandeira2.e305f83f633486ccff83.webp",
+    "static/media/bandeiras cartao1.webp": "/static/media/bandeiras cartao1.b4e7b404d662f3251ed8.webp",
+    "static/media/bandeira_pagamento.webp": "/static/media/bandeira_pagamento.73cc980fa6c6967c0943.webp",
+    "index.html": "/index.html",
+    "main.88fa3921.css.map": "/static/css/main.88fa3921.css.map",
+    "main.4bf84264.js.map": "/static/js/main.4bf84264.js.map",
+    "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.88fa3921.css",
-    "static/js/main.edd9b0c0.js"
+    "static/js/main.4bf84264.js"
   ]
 }
