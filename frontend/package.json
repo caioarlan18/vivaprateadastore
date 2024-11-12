@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://caioarlan18.github.io/vivaprateadastore/",
+  "homepage": "https://cool-boba-7e54ae.netlify.app",
   "private": true,
   "dependencies": {
     "@csstools/postcss-text-decoration-shorthand": "^3.0.6",
