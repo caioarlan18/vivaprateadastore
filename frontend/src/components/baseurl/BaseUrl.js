@@ -1,3 +1,3 @@
-const baseurl = "https://vivaprateadastore-7od06hsw5-caioarlan18s-projects.vercel.app/?vercelToolbarCode=4KU7qbDrQceQEJD";
+const baseurl = "https://vivaprateadastore.vercel.app/";
 
 export default baseurl;
