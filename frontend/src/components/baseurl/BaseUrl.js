@@ -1,3 +1,3 @@
-const baseurl = "https://vivaprateadastore.onrender.com";
+const baseurl = "https://vivaprateadastore.vercel.app/";
 
 export default baseurl;
