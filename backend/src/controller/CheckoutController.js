@@ -2,7 +2,7 @@ const axios = require('axios');
 module.exports = {
     async criarCheckout(req, res) {
         const { customer, items, shipping, payment_methods_configs } = req.body;
-        const baseurl = "https://caioarlan18.github.io/vivaprateadastore/#/"
+        const baseurl = "https://viva-prateada.netlify.app"
         const token = process.env.TOKENPAGBANK;
         const options = {
             method: 'POST',
@@ -23,8 +23,8 @@ module.exports = {
                 payment_methods: [{ type: 'CREDIT_CARD' }, { type: 'DEBIT_CARD' }, { type: 'BOLETO' }, { type: 'PIX' }],
                 payment_methods_configs: payment_methods_configs,
                 soft_descriptor: 'VIVAPRATEADA',
-                redirect_url: `${baseurl}compraefetuada`,
-                return_url: `${baseurl}checkout`,
+                redirect_url: `${baseurl}/compraefetuada`,
+                return_url: `${baseurl}/checkout`,
                 notification_urls: ['https://pagseguro.uol.com.br']
             }
         };
