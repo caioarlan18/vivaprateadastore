@@ -6,7 +6,7 @@ module.exports = {
         const token = process.env.TOKENCORREIO
         const options = {
             method: 'POST',
-            url: 'https://melhorenvio.com.br/api/v2/me/shipment/calculate',
+            url: 'https://www.melhorenvio.com.br/api/v2/me/shipment/calculate',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
