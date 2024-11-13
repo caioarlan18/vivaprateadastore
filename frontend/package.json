@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://tourmaline-conkies-3d3cec.netlify.app",
+  "homepage": "https://viva-prateada.netlify.app",
   "private": true,
   "dependencies": {
     "@csstools/postcss-text-decoration-shorthand": "^3.0.6",
