@@ -9,14 +9,14 @@
 .vazio h1 {
     font-size: 20px;
     color: #282828;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 500;
 }
 
 .vazio p {
     font-size: 16px;
     color: #6f6f6f;
-    font-family: Zen Antique;
+    font-family: Poppins;
     margin-top: 20px;
     font-weight: 400;
 }
@@ -28,7 +28,7 @@
     margin-top: 30px;
     font-size: 16px;
     color: white;
-    font-family: Zen Antique;
+    font-family: Poppins;
     border: 0;
     border-radius: 5px;
     font-weight: 600;
@@ -49,13 +49,13 @@
 }
 
 .carrinho h2 {
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 24px;
     color: #4a4a4a;
 }
 
 .carrinho1 h1 {
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 400;
     font-size: 20px;
 }
@@ -76,7 +76,7 @@
 
 .carrinho3 h1 {
     color: #404040;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 14px;
     margin-top: 10px;
     font-weight: 600;
@@ -85,7 +85,7 @@
 
 .carrinho3 h2 {
     color: #6f6f6f;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 12px;
     margin-top: 10px;
     font-weight: 500;
@@ -95,7 +95,7 @@
     font-size: 16px;
     color: #333333;
     margin-top: 10px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 700;
 }
 
@@ -103,7 +103,7 @@
     font-size: 14px;
     color: #333333;
     margin-top: 10px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 700;
 }
 
@@ -114,7 +114,7 @@
 .carrinho3 p {
     color: #868686;
     font-size: 12px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     margin-top: 20px;
     font-weight: 600;
     text-align: center;
@@ -151,7 +151,7 @@
 }
 
 .carrinho4a h1 {
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 22px;
     color: #333333;
     margin-top: 30px;
@@ -166,7 +166,7 @@
 .carrinho4b h2 {
     margin-top: 30px;
     font-size: 14px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     color: #666666;
     font-weight: 400;
     width: 100%;
@@ -175,7 +175,7 @@
 .carrinho4b h3 {
     margin-top: 15px;
     font-size: 14px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     color: #333333;
     font-weight: 700;
     width: 100%;
@@ -184,7 +184,7 @@
 .carrinho4b h3:last-child {
     margin-top: 15px;
     font-size: 18px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     color: #333333;
     font-weight: 700;
     width: 100%;
@@ -201,7 +201,7 @@
     border: 0;
     height: 50px;
     font-size: 18px;
-    font-family: Zen Antique;
+    font-family: Poppins;
 }
 
 .linha {
@@ -215,7 +215,7 @@
 
 .calcFrete h2 {
     margin-bottom: 10px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 20px;
     font-weight: 600;
     color: #404040;
@@ -225,7 +225,7 @@
     padding: 10px;
     border-radius: 5px;
     border: #0D4389 1px solid;
-    font-family: Zen Antique;
+    font-family: Poppins;
     outline: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -242,7 +242,7 @@
     border: #0D4389 1px solid;
     background-color: #0D4389;
     color: white;
-    font-family: Zen Antique;
+    font-family: Poppins;
     cursor: pointer;
 }
 

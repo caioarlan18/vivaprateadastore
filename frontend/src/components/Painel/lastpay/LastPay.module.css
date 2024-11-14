@@ -18,7 +18,7 @@
 .tr1 h1,
 .tr1 h2,
 .tr1 h3 {
-    font-family: Zen Antique;
+    font-family: Poppins;
     color: #333333;
     margin-top: 7px;
     text-transform: uppercase;
@@ -48,7 +48,7 @@
     cursor: pointer;
     color: #0D4389;
     font-size: 15px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     text-decoration: underline;
     margin-left: 20px;
 }

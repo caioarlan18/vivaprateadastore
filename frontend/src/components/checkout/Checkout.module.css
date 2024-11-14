@@ -19,7 +19,7 @@
 }
 
 .checkout1 h1 {
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 18px;
     color: #333333;
 }
@@ -27,7 +27,7 @@
 .checkout1 p {
     color: #666666;
     font-size: 14px;
-    font-family: Zen Antique;
+    font-family: Poppins;
 }
 
 .checkout1 input {
@@ -39,7 +39,7 @@
     border-radius: 8px;
     outline: none;
     font-size: 1rem;
-    font-family: Zen Antique;
+    font-family: Poppins;
 }
 
 .checkout1:last-child input {
@@ -50,7 +50,7 @@
     border: 0;
     border-radius: 8px;
     width: 80%;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 600;
     cursor: pointer;
 }

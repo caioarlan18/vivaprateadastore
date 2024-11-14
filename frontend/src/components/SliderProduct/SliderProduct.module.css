@@ -12,7 +12,7 @@
 }
 
 .sliderProductTitle h1 {
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-weight: 400;
   color: #0d4389;
   font-size: 28px;
@@ -21,7 +21,7 @@
 .sliderProductTitle p {
   font-size: 14px;
   color: #666666;
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-weight: 500;
   margin-top: 10px;
 }
@@ -34,7 +34,7 @@
 
 .card1 h1 {
   color: #0d4389;
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-size: 15px;
   font-weight: 500;
   text-align: center;
@@ -49,7 +49,7 @@
 
 .card1 h2 {
   font-size: 12px;
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-weight: 400;
   color: #0d4389;
   text-transform: capitalize;
@@ -58,7 +58,7 @@
 .card1 p {
   color: #000000;
   font-size: 16px;
-  font-family: Zen Antique;
+  font-family: Poppins;
   margin-top: 15px;
   text-align: center;
   font-weight: 500;
@@ -71,14 +71,33 @@
   width: 100%;
   padding: 5px;
   color: white;
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-size: 15px;
   font-weight: 600;
   border-radius: 10px;
   cursor: pointer;
 }
 
+.place {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 
+}
+
+.place img {
+  width: 45%;
+  height: 300px;
+  margin: 0px 10px;
+  border-radius: 10px;
+}
+
+
+
+.placeD {
+  display: none;
+}
 
 @media screen and (min-width: 992px) and (max-width: 4000px) {
 
@@ -92,5 +111,22 @@
 
   .card1 img {
     height: 300px;
+  }
+
+  .placeD {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .placeD img {
+    width: 17%;
+    height: 300px;
+    margin: 0px 15px;
+  }
+
+  .place {
+    display: none;
   }
 }

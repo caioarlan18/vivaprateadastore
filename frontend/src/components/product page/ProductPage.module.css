@@ -38,7 +38,7 @@
 }
 
 .compra2 h1 {
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-weight: 500;
   font-size: 18px;
   margin: 30px 0px;
@@ -49,7 +49,7 @@
 .compra2 a {
   color: #1b3768;
   font-size: 12px;
-  font-family: Zen Antique;
+  font-family: Poppins;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -61,7 +61,7 @@
 }
 
 .compra3 h2 {
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-size: 20px;
   color: #0d4389;
   margin: 0;
@@ -77,11 +77,11 @@
   border-radius: 5px;
   padding: 3px 8px;
   font-weight: 600;
-  font-family: Zen Antique;
+  font-family: Poppins;
 }
 
 .compra3 h3 {
-  font-family: Zen Antique;
+  font-family: Poppins;
   color: #666666;
   font-weight: 400;
   font-size: 20px;
@@ -98,11 +98,11 @@
 
 .compra4 h1 {
   font-size: 15px;
-  font-family: Zen Antique;
+  font-family: Poppins;
 }
 
 .compra4 select {
-  font-family: Zen Antique;
+  font-family: Poppins;
   width: 70px;
   text-transform: uppercase;
 }
@@ -123,7 +123,7 @@
   background-color: #0d4389;
   color: white;
   font-size: 13px;
-  font-family: Zen Antique;
+  font-family: Poppins;
   text-decoration: none;
   border-radius: 30px;
   cursor: pointer;
@@ -140,7 +140,7 @@ button.compra51 {
   padding: 10px 20px;
   background-color: #018bd6;
   color: white;
-  font-family: Zen Antique;
+  font-family: Poppins;
   text-decoration: none;
   border-radius: 30px;
   cursor: pointer;
@@ -156,7 +156,7 @@ button.compra51 {
 }
 
 .compra6b {
-  font-family: Zen Antique;
+  font-family: Poppins;
   margin-top: 10px;
   font-size: 14px;
   color: #226a7c;
@@ -188,21 +188,21 @@ button.compra51 {
 .compra8 h1 {
   font-size: 22px;
   color: #1b3768;
-  font-family: Zen Antique;
+  font-family: Poppins;
   font-weight: 500;
 }
 
 .compra8 h2 {
   color: #515151;
   font-size: 18px;
-  font-family: Zen Antique;
+  font-family: Poppins;
   margin-top: 20px;
 }
 
 .compra8 p {
   color: #4b4f58;
   margin-top: 15px;
-  font-family: Zen Antique;
+  font-family: Poppins;
   line-height: 1.6;
   font-size: 15px;
   word-wrap: break-word;
@@ -231,10 +231,16 @@ button.compra51 {
 .recomendados h1 {
   width: 100%;
   font-size: 22px;
-  font-family: Zen Antique;
+  font-family: Poppins;
   text-align: center;
   color: #0d4389;
   font-weight: 500;
+}
+
+.placeimg {
+  width: 95%;
+  height: 500px;
+  object-fit: contain;
 }
 
 @media screen and (min-width: 992px) and (max-width: 4000px) {

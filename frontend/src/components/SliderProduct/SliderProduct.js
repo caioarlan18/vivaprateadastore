@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { animateScroll as scroll } from 'react-scroll';
 import { Navigation } from 'swiper/modules';
+import productPlaceholder from '../images/product-placeholder.png';
 const { Meta } = Card;
 
 export function SliderProduct() {
@@ -81,8 +82,6 @@ export function SliderProduct() {
 
 
 
-
-
     return (
         <div className={styles.sliderProduct}>
             <ToastContainer />
@@ -90,6 +89,21 @@ export function SliderProduct() {
                 <h1>nossas peças</h1>
                 <p>confira todas nossas peças disponíveis</p>
             </div>
+            {products.length === 0 &&
+                <div className={styles.place}>
+                    <img src={productPlaceholder} alt='placeholder' />
+                    <img src={productPlaceholder} alt='placeholder' />
+                </div>
+            }
+            {products.length === 0 &&
+                <div className={styles.placeD}>
+                    <img src={productPlaceholder} alt='placeholder' />
+                    <img src={productPlaceholder} alt='placeholder' />
+                    <img src={productPlaceholder} alt='placeholder' />
+                    <img src={productPlaceholder} alt='placeholder' />
+                    <img src={productPlaceholder} alt='placeholder' />
+                </div>
+            }
             <Swiper spaceBetween={30} slidesPerView={2} className={styles.card} modules={[Navigation]}
                 breakpoints={{
                     992: {

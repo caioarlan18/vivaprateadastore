@@ -6,7 +6,7 @@
 }
 
 .popularTitle h1 {
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 400;
     color: #0d4389;
     font-size: 28px;
@@ -15,7 +15,7 @@
 .popularTitle p {
     font-size: 14px;
     color: #666666;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 500;
     margin-top: 10px;
     text-align: center;
@@ -50,7 +50,7 @@ a.popular2 {
 
 .popular2 span {
     color: #666666;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-weight: 500;
     font-size: 13px;
     text-decoration: none;

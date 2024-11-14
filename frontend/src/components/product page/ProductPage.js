@@ -10,6 +10,7 @@ import Bandeira2 from '../images/bandeiras cartao1.webp';
 import { useNavigate } from "react-router-dom";
 import { animateScroll as scroll } from 'react-scroll';
 import { CardProduct } from "../cardproduct/CardProduct";
+import placeholderImg from '../images/placeholder-img.webp';
 export function ProductPage() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -67,7 +68,8 @@ export function ProductPage() {
             <Header />
             <div className={styles.compra}>
                 <div className={styles.imagem_principal}>
-                    <img src={product.imageUrl} alt="imagem principal do produto" />
+                    {!product.imageUrl ? <img src={placeholderImg} alt="placeholderimg" className={styles.placeimg} /> : <img src={product.imageUrl} alt="img-do-produto" />}
+
                 </div>
 
                 <div className={styles.compra2}>
@@ -143,8 +145,7 @@ export function ProductPage() {
                 <div className={styles.desktop}>
                     <div className={styles.desktop1}>
                         <div className={styles.imagem_principal}>
-
-                            <img src={product.imageUrl} alt="imagem principal do produto" />
+                            {!product.imageUrl ? <img src={placeholderImg} alt="placeholderimg" className={styles.placeimg} /> : <img src={product.imageUrl} alt="img-do-produto" />}
                         </div>
 
                     </div>
@@ -201,6 +202,7 @@ export function ProductPage() {
                     <h1>você também vai gostar</h1>
                 </div>
                 <div className={styles.card}>
+
                     {products
                         .filter(obj => obj.category === product.category && obj.title !== product.title)
                         .slice(0, 5)

@@ -3,7 +3,7 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: Zen Antique;
+    font-family: Poppins;
     width: 80%;
     margin: 0 auto;
     margin-top: 50px;
@@ -11,7 +11,12 @@
 
 }
 
-
+.register0 h1 {
+    color: black;
+    font-weight: 700;
+    font-family: poppins;
+    font-size: 32px;
+}
 
 .register0 {
     margin-bottom: 20px;
@@ -25,7 +30,7 @@
     box-sizing: border-box;
     margin-top: 10px;
     outline: none;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 14px;
 }
 
@@ -41,16 +46,19 @@
     color: white;
     border: 0;
     border-radius: 5px;
-    font-family: Zen Antique;
+    font-family: Poppins;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
 
 }
 
-a {
+.register0 a {
     color: #0D4389;
     cursor: pointer;
+    font-weight: 400;
+    font-family: poppins;
+    font-size: 16px;
 }
 
 @media screen and (min-width: 992px) and (max-width: 4000px) {

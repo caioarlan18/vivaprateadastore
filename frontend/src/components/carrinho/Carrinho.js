@@ -51,7 +51,7 @@ export function Carrinho() {
                     <FaShoppingCart />
                     <h1>seu carrinho tá vazio</h1>
                     <p>Que tal navegar pelas milhares de ofertas e achar uma especial para você?</p>
-                    <Link to={'/'}><button>Home</button></Link>
+                    <Link to={'/catalogo'}><button>Nosso catálogo</button></Link>
                 </div>
                 <Footer />
             </div>
