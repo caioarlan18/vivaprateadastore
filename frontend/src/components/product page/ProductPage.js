@@ -10,7 +10,7 @@ import Bandeira2 from '../images/bandeiras cartao1.webp';
 import { useNavigate } from "react-router-dom";
 import { animateScroll as scroll } from 'react-scroll';
 import { CardProduct } from "../cardproduct/CardProduct";
-import placeholderImg from '../images/placeholder-img.webp';
+import placeholderImg from '../images/placeholder-img.jpeg';
 export function ProductPage() {
     const navigate = useNavigate();
     const { id } = useParams();
