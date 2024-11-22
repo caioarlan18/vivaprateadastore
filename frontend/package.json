@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://viva-prateada.netlify.app",
+  "homepage": "https://vivaprateada.com.br",
   "private": true,
   "dependencies": {
     "@csstools/postcss-text-decoration-shorthand": "^3.0.6",
