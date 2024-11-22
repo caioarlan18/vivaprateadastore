@@ -5,12 +5,11 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import banner1mobile from '../images/banner 1 mobile.png';
-
-import banner2mobile from '../images/banner 2 mobile.png';
-import banner3mobile from '../images/banner 3 mobile.png';
-import banner4mobile from '../images/banner 4 mobile.png';
-import banner5mobile from '../images/banner 5 mobile.png';
+import banner1mobile from '../images/banner 1 mobile downscale.png';
+import banner2mobile from '../images/banner 2 mobile downscale.png';
+import banner3mobile from '../images/banner 3 mobile downscale.png';
+import banner4mobile from '../images/banner 4 mobile downscale.png';
+import banner5mobile from '../images/banner 5 mobile downscale.png';
 import banner1desktop from '../images/banner 1 desktop.PNG';
 import banner2desktop from '../images/banner 2 desktop.PNG';
 import banner3desktop from '../images/banner 3 desktop.PNG';
